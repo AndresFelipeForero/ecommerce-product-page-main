@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+//Just It is the reset
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap');
+
+:root {
+  --Orange: hsl(26, 100%, 55%);
+  --Paleorange: hsl(25, 100%, 94%);
+
+  // ### Neutral
+
+  --Verydarkblue: hsl(220, 13%, 13%);
+  --Darkgrayishblue: hsl(219, 9%, 45%);
+  --Grayishblue: hsl(220, 14%, 75%);
+  --Lightgrayishblue: hsl(223, 64%, 98%);
+  --White: hsl(0, 0%, 100%);
+  // (with 75% opacity for lightbox background)
+  --Black: hsla(0, 0%, 0%);
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 16px;
+}
+
+/* Reseteamos los margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Evitamos problemas con las imagenes */
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+
+  -o-object-fit: cover;
+  object-fit: cover;
+
+  -o-object-position: center center;
+  object-position: center center;
+}
+
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
