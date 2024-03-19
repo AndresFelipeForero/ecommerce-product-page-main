@@ -1,0 +1,140 @@
+.variables {
+    --Orange: hsl(26, 100%, 55%);
+  --Paleorange: hsl(25, 100%, 94%);
+
+  // ### Neutral
+
+  --Verydarkblue: hsl(220, 13%, 13%);
+  --Darkgrayishblue: hsl(219, 9%, 45%);
+  --Grayishblue: hsl(220, 14%, 75%);
+  --Lightgrayishblue: hsl(223, 64%, 98%);
+  --White: hsl(0, 0%, 100%);
+  // (with 75% opacity for lightbox background)
+  --Black: hsla(0, 0%, 0%);
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    .gallery {
+        display: none;
+    }
+
+    .content {
+        // border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 0 24px;
+
+       .info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+           .company__name{
+               color: var(--Orange);
+               font-weight: 700;
+               font-size: 0.8em;
+           }
+
+           h2 {
+            font-size: 2em;
+            color: var(--Verydarkblue);
+           }
+           
+           .description {
+            line-height: 28px;
+            color: var(--Darkgrayishblue);
+           }
+        }
+
+        .info__price {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            align-items: center;
+
+            .price {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+
+                .final__price {
+                    font-size: 28px;
+                    color: var(--Verydarkblue);
+                }
+
+                .discount {
+                    background-color: var(--Paleorange);
+                    color: var(--Orange);
+                    border-radius: 4px;
+                    height: 1.5em;
+                    width: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .original__price {
+                color: var(--Grayishblue);
+                text-decoration: line-through;
+            }
+        }
+
+        .accions{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1rem;
+
+            .counter {
+                display: flex;
+                justify-content: space-between;
+                height: 56px;
+                border-radius: 8px;
+                background-color: var(--Lightgrayishblue);
+
+                .minus {
+                    
+                }
+
+                .plus {
+
+                }
+            }
+
+            .btn__add{
+                height: 56px;
+                background-color: var(--Orange);
+                border-radius: 8px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                img {
+                    height: 1rem;
+                    width: 1rem;
+                }
+
+                span {
+                    font-weight: 700;
+                    color: var(--White);
+                }
+                
+            }
+        }
+    }
+
+
+
+    .attribution { font-size: 11px; text-align: center; 
+    }
+    .attribution a { color: hsl(228, 45%, 44%); }
+}

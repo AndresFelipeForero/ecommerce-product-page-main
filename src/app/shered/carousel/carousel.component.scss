@@ -1,0 +1,43 @@
+.carousel__container {
+    height: 80vw;
+    position: relative;
+    background-color: black;
+
+    img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        -o-object-position: top center;
+        object-position: top center;
+    }
+
+    button {
+        position: absolute;
+        z-index: 2;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+    }
+
+    .btn__left {
+        left: 4.26vw;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url('../../../assets/images/icon-previous.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 10px;
+    }
+
+    .btn__right {
+        right: 4.26vw;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url('../../../assets/images/icon-next.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 10px;
+
+    }
+
+}

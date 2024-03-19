@@ -55,15 +55,9 @@ figure {
 
 /* Reseteamos los enlaces para funcionar como cajas... */
 a {
-  display: block;
   text-decoration: none;
   color: inherit;
   font-size: inherit;
-}
-
-/* ... excepto los que se encuentran en párrafos */
-p a {
-  display: inline;
 }
 
 /* Quitamos los puntos de los <li> */

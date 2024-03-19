@@ -1,5 +1,5 @@
-<div class="carousel-container">
+<div class="carousel__container">
     <img [src]="images[currentImageIndex]" alt="Image">
-    <button (click)="showPrevImage()">Prev</button>
-    <button (click)="showNextImage()">Next</button>
-  </div>
+    <button class="btn__left" (click)="showPrevImage()"></button>
+    <button class="btn__right" (click)="showNextImage()"></button>
+</div>
