@@ -1,16 +1,16 @@
 .variables {
     --Orange: hsl(26, 100%, 55%);
-  --Paleorange: hsl(25, 100%, 94%);
+    --Paleorange: hsl(25, 100%, 94%);
 
-  // ### Neutral
+    // ### Neutral
 
-  --Verydarkblue: hsl(220, 13%, 13%);
-  --Darkgrayishblue: hsl(219, 9%, 45%);
-  --Grayishblue: hsl(220, 14%, 75%);
-  --Lightgrayishblue: hsl(223, 64%, 98%);
-  --White: hsl(0, 0%, 100%);
-  // (with 75% opacity for lightbox background)
-  --Black: hsla(0, 0%, 0%);
+    --Verydarkblue: hsl(220, 13%, 13%);
+    --Darkgrayishblue: hsl(219, 9%, 45%);
+    --Grayishblue: hsl(220, 14%, 75%);
+    --Lightgrayishblue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    // (with 75% opacity for lightbox background)
+    --Black: hsla(0, 0%, 0%);
 }
 
 .container {
@@ -19,6 +19,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 30px;
+
     .gallery {
         display: none;
     }
@@ -31,26 +32,27 @@
         gap: 28px;
         padding: 0 24px;
 
-       .info{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 20px;
-           .company__name{
-               color: var(--Orange);
-               font-weight: 700;
-               font-size: 0.8em;
-           }
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
 
-           h2 {
-            font-size: 2em;
-            color: var(--Verydarkblue);
-           }
-           
-           .description {
-            line-height: 28px;
-            color: var(--Darkgrayishblue);
-           }
+            .company__name {
+                color: var(--Orange);
+                font-weight: 700;
+                font-size: 0.8em;
+            }
+
+            h2 {
+                font-size: 2em;
+                color: var(--Verydarkblue);
+            }
+
+            .description {
+                line-height: 28px;
+                color: var(--Darkgrayishblue);
+            }
         }
 
         .info__price {
@@ -87,7 +89,7 @@
             }
         }
 
-        .accions{
+        .accions {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -96,20 +98,36 @@
             .counter {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 height: 56px;
                 border-radius: 8px;
                 background-color: var(--Lightgrayishblue);
+                padding: 0 1.5rem;
 
                 .minus {
-                    
+                    background-color: var(--Lightgrayishblue);
+                    background-image: url('../../../assets/images/icon-minus.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                    width: 14px;
+                    height: 14px;
+                    cursor: pointer;
                 }
 
                 .plus {
-
+                    background-color: var(--Lightgrayishblue);
+                    background-image: url('../../../assets/images/icon-plus.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                    width: 14px;
+                    height: 14px;
+                    cursor: pointer;
                 }
             }
 
-            .btn__add{
+            .btn__add {
                 height: 56px;
                 background-color: var(--Orange);
                 border-radius: 8px;
@@ -117,24 +135,32 @@
                 justify-content: center;
                 align-items: center;
                 gap: 1rem;
+                cursor: pointer;
 
-                img {
-                    height: 1rem;
-                    width: 1rem;
+                .cart-img-add {
+                    width: 16px;
+                    height: 16px;
+                    background-image: url('../../../assets/images/icon-cart-add.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
                 }
 
                 span {
                     font-weight: 700;
                     color: var(--White);
                 }
-                
             }
         }
     }
 
 
 
-    .attribution { font-size: 11px; text-align: center; 
+    .attribution {
+        font-size: 11px;
+        text-align: center;
     }
-    .attribution a { color: hsl(228, 45%, 44%); }
+
+    .attribution a {
+        color: hsl(228, 45%, 44%);
+    }
 }

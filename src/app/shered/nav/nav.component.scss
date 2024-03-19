@@ -26,17 +26,20 @@
     gap: 6.4vw;
     background-color: var(--White);
 
-    h1 {
+    .logo {
+        background-image: url('../../../assets/images/logo.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 20px;
+        margin-bottom: 4px;
         flex-grow: 1;
         font-size: 32px;
-        padding-bottom: 6px;
         margin-left: -2.13vw;
         color: var(--Verydarkblue);
     }
 
     img {
         flex-grow: 0;
-        height: 20px;
         width: 20px;
         margin-bottom: 5px;
     }
