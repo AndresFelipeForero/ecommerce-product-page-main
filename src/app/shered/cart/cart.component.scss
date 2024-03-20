@@ -1,0 +1,126 @@
+.variables {
+    --Orange: hsl(26, 100%, 55%);
+  --Paleorange: hsl(25, 100%, 94%);
+
+  // ### Neutral
+
+  --Verydarkblue: hsl(220, 13%, 13%);
+  --Darkgrayishblue: hsl(219, 9%, 45%);
+  --Grayishblue: hsl(220, 14%, 75%);
+  --Lightgrayishblue: hsl(223, 64%, 98%);
+  --White: hsl(0, 0%, 100%);
+  // (with 75% opacity for lightbox background)
+  --Black: hsla(0, 0%, 0%);
+}
+
+.container {
+    height: 256px;
+    max-width: 360px;
+    width: 96vw;
+    background-color: var(--White);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .title {
+        min-height: 60px;
+        display: flex;
+        padding: 0 24px;
+
+        h2 {
+            align-self: center;
+            width: 100%;
+            color: var(--Verydarkblue);
+            font-size: 18px;
+        }
+    }
+
+    .hr {
+        height: 1px;
+        background-color: var(--Grayishblue);
+    }
+
+    .info {
+        height: 190px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 6.4vw;
+        margin-top: 24px;
+
+        img{
+            height: 50px;
+            width: 50px;
+            border-radius: 4px;
+        }
+
+        .info__datos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+
+            h3{
+                font-size: 15px;
+                color: var(--Grayishblue);
+                font-weight: 400;
+            }
+
+            .prices {
+                display: flex;
+                gap: 5px;
+                color: var(--Grayishblue);
+                font-size: 15px;
+
+                .total {
+                    font-weight: 700;
+                    color: var(--Verydarkblue);
+                }
+            }
+        }
+
+        .delete {
+            background-image: url('../../../assets/images/icon-delete.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-color: var(--White);
+            width: 14px;
+            height: 20px;
+        }
+    }
+
+    .checkout__btn {
+        min-height: 56px;
+            background-color: var(--Orange);
+            border-radius: 8px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            color: var(--White);
+            margin: 32px 6.4vw;
+    }
+
+
+    // Cart Empt
+
+    .title__empty{
+        display: flex;
+        align-items: center;
+        height: 60px;
+        margin: 0 6.4vw;
+        font-size: 12px;
+    }
+    
+    .span__empty{
+        // border: 1px solid black;
+        display: grid;
+        height: 196px;
+        place-items: center;
+        color: var(--Darkgrayishblue);
+        font-weight: 700;
+    }
+}

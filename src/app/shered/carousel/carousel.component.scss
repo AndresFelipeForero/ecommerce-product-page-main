@@ -1,7 +1,6 @@
 .carousel__container {
     height: 80vw;
     position: relative;
-    background-color: black;
 
     img {
         position: absolute;
@@ -17,27 +16,22 @@
         border-radius: 50%;
         height: 40px;
         width: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 10px;
+        background-color: var(--White);
     }
 
     .btn__left {
         left: 4.26vw;
-        top: 50%;
-        transform: translateY(-50%);
         background-image: url('../../../assets/images/icon-previous.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 10px;
     }
 
     .btn__right {
         right: 4.26vw;
-        top: 50%;
-        transform: translateY(-50%);
         background-image: url('../../../assets/images/icon-next.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 10px;
-
     }
 
 }

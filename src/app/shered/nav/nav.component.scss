@@ -54,14 +54,18 @@
     cursor: pointer;
     display: block;
     background-image: url("../../../assets/images/icon-menu.svg");
-    height: 15px;
-    width: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 16px;
+    width: 15px;
     z-index: 1;
     transition: all .4s;
 }
 
 .nav__toggle--active {
     background-image: url("../../../assets/images/icon-close.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
     background-color: var(--Lightgrayishblue);
     height: 15px;
     width: 14px;
@@ -90,7 +94,6 @@
     color: var(--Verydarkblue);
         position: relative;
         font-weight: 700;
-
 
         &.active {
             color: darkblue;
@@ -136,6 +139,17 @@
     opacity: 0.75;
     z-index: 5;
     display: block;
+}
+
+
+/* Cart */
+
+.cart {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 68px;
 }
 
 
