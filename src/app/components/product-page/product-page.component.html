@@ -1,5 +1,5 @@
 <div class="container">
-    <app-carousel [images]="images"></app-carousel>
+    <app-carousel class="app-carousel" [images]="productById.image"></app-carousel>
     <div class="gallery">
         <div class="big__contain">
             <img src="" alt="" class="big__img">
@@ -17,27 +17,26 @@
 
     <div class="content">
         <div class="info">
-            <span class="company__name">SNEAKER COMPANY</span>
-            <h2 class="product__name">Fall Limited Edition Sneakers</h2>
-            <p class="description">These low-profile sneakers are your perfect casual wear companion. Featuring a 
-                durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+            <span class="company__name"> {{productById.company}} </span>
+            <h2 class="product__name"> {{productById.name}}</h2>
+            <p class="description">{{productById.description}}</p>
         </div>
 
         <div class="info__price">
             <div class="price">
-                <div class="final__price">$125.00</div>
-                <div class="discount">50%</div>
+                <div class="final__price">${{ (productById.price * productById.discount / 100).toFixed(2)}}</div>
+                <div class="discount">{{productById.discount}}%</div>
             </div>
-            <span class="original__price">$250.00</span>
+            <span class="original__price">${{productById.price.toFixed(2)}}</span>
         </div>
 
         <div class="accions">
             <div class="counter">
-                <button class="minus"> </button>
-                <span class="amount">0</span>
-                <button class="plus"></button>
+                <button class="minus" (click)="minus()"> </button>
+                <span class="amount"> {{ productAmount }} </span>
+                <button class="plus" (click)="plus()"></button>
             </div>
-            <button class="btn__add">
+            <button (click)="addToCart()" class="btn__add">
                 <div class="cart-img-add"></div>
                 <span>Add to cart</span>
             </button>

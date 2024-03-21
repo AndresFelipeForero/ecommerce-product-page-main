@@ -14,7 +14,6 @@
 }
 
 .container {
-    height: 256px;
     max-width: 360px;
     width: 96vw;
     background-color: var(--White);
@@ -42,7 +41,6 @@
     }
 
     .info {
-        height: 190px;
         display: flex;
         justify-content: space-between;
         align-items: center;

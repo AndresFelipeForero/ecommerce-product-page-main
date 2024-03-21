@@ -1,0 +1,33 @@
+<div class="container">
+    @if (!cartFill) {
+    <div class="title__empty">
+        <h2>Cart</h2>
+    </div>
+    <hr class="hr">
+
+    <span class="span__empty">Your cart is empty.</span>
+    }@else{
+    <div class="title">
+        <h2>Cart</h2>
+    </div>
+
+    <hr class="hr">
+
+    @for (product of products; track product.id) {
+    <div class="info">
+        <img src="../../../assets/images/image-product-1-thumbnail.jpg" alt="sneaker-image">
+
+        <div class="info__datos">
+            <h3>{{product.name}}</h3>
+            <div class="prices">
+                <span class="price">${{(product.price * product.discount / 100).toFixed(2)}}</span>
+                <span class="amount">x {{product.quantity}}</span>
+                <span class="total">${{(product.quantity * product.price * product.discount / 100).toFixed(2)}}</span>
+            </div>
+        </div>
+        <button class="delete" (click)="onClickDelete(product.id)"></button>
+    </div>
+}
+<button class="checkout__btn">Checkout</button>
+}
+</div>

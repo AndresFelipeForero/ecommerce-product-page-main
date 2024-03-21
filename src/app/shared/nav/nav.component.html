@@ -1,0 +1,30 @@
+<nav class="nav">
+
+  <button class="nav__toggle" (click)="toggleNav()" [ngClass]="{'nav__toggle--active': isNavActive}"></button>
+
+  <div class="logo"></div>
+
+  <ul class="nav__ul" [ngClass]="{'nav__ul--active': isNavActive}">
+
+    <li routerLinkActive="active" class="nav__li" (click)="closeNav()"><a class="nav__a">Collections</a>
+    </li>
+    <li routerLinkActive="active" class="nav__li" (click)="closeNav()"><a class="nav__a">Men</a>
+    </li>
+    <li routerLinkActive="active" class="nav__li" (click)="closeNav()"><a class="nav__a">Women</a>
+    </li>
+    <li routerLinkActive="active" class="nav__li" (click)="closeNav()"><a class="nav__a">About</a>
+    </li>
+    <li routerLinkActive="active" class="nav__li" (click)="closeNav()"><a class="nav__a">Contact</a>
+    </li>
+  </ul>
+
+  <div class="carticon__container" (click)="cartToggle()">
+    <span class="cart__quantity"> {{cartSpan}} </span>
+  </div>
+
+  <img class="profile" src="../../../assets/images/image-avatar.png" alt="">
+</nav>
+<app-cart class="cart" [ngClass]="{'cart__active': isCartActive}"></app-cart>
+
+
+<div class="modal" (click)="closeNav()" [ngClass]="{'modal__active': isNavActive}"></div>

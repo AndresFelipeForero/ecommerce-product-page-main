@@ -171,3 +171,9 @@
         color: hsl(228, 45%, 44%);
     }
 }
+
+@media (min-width:819px){
+    .app-carousel {
+        display: none;
+    }
+}

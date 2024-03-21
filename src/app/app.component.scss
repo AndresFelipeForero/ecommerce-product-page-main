@@ -1,3 +1,10 @@
 .app-container{
     height: 100%;
 }
+
+@media (min-width:819px) {
+    .app-container{
+        max-width: 1112px;
+        margin: auto;
+    }
+}

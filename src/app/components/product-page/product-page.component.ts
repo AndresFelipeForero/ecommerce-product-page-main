@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { CarouselComponent } from '../../shered/carousel/carousel.component';
+import { Component, inject } from '@angular/core';
+import { CarouselComponent } from '../../shared/carousel/carousel.component';
+import { IProduct } from '../../interfaces/product';
+import { Products } from '../../data/Product-data';
+import { CartStoreService } from '../../services/cart-store.service';
 
 @Component({
   selector: 'app-product-page',
@@ -9,10 +12,29 @@ import { CarouselComponent } from '../../shered/carousel/carousel.component';
   styleUrl: './product-page.component.scss',
 })
 export class ProductPageComponent {
-  images = [
-    '../../../assets/images/image-product-1.jpg',
-    '../../../assets/images/image-product-2.jpg',
-    '../../../assets/images/image-product-3.jpg',
-    '../../../assets/images/image-product-4.jpg',
-  ];
+
+  _storeService = inject(CartStoreService)
+  productById!: IProduct;
+  productAmount = 0;
+
+  ngOnInit(){
+    this.productById = Products.find( ({id}) => id = 1)!
+  }
+
+  plus() {
+    this.productAmount ++
+  }
+
+  minus() {
+    if (this.productAmount > 0) {
+      this.productAmount --
+    }
+  }
+  
+  addToCart(){
+    if (this.productAmount>0) {
+      this._storeService.addProduct({...this.productById, quantity: this.productAmount})
+      console.log(this.productAmount)
+    }
+  }
 }
