@@ -21,6 +21,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    box-shadow: 0px 12px 40px -2px hsla(220, 13%, 13%,.3);
+
 
     .title {
         min-height: 60px;
@@ -37,14 +39,14 @@
 
     .hr {
         height: 1px;
-        background-color: var(--Grayishblue);
+        background-color: var(--Lightgrayishblue);
     }
 
     .info {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 6.4vw;
+        padding: 0 24px;
         margin-top: 24px;
 
         img{
@@ -99,7 +101,7 @@
             gap: 1rem;
             cursor: pointer;
             color: var(--White);
-            margin: 32px 6.4vw;
+            margin: 32px 24px;
     }
 
 
@@ -109,7 +111,7 @@
         display: flex;
         align-items: center;
         height: 60px;
-        margin: 0 6.4vw;
+        margin: 0 24px;
         font-size: 12px;
     }
     
