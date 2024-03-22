@@ -3,11 +3,12 @@ import { CarouselComponent } from '../../shared/carousel/carousel.component';
 import { IProduct } from '../../interfaces/product';
 import { Products } from '../../data/Product-data';
 import { CartStoreService } from '../../services/cart-store.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [CarouselComponent],
+  imports: [CarouselComponent, NgClass],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss',
 })
@@ -16,9 +17,11 @@ export class ProductPageComponent {
   _storeService = inject(CartStoreService)
   productById!: IProduct;
   productAmount = 0;
+  currentImageIndex = 0;
 
   ngOnInit(){
     this.productById = Products.find( ({id}) => id = 1)!
+    console.log(this.productById.thumbnail[0])
   }
 
   plus() {
@@ -36,5 +39,9 @@ export class ProductPageComponent {
       this._storeService.addProduct({...this.productById, quantity: this.productAmount})
       console.log(this.productAmount)
     }
+  }
+
+  imgSelected($index: number){
+    this.currentImageIndex = $index
   }
 }
