@@ -18,6 +18,7 @@ export class ProductPageComponent {
   productById!: IProduct;
   productAmount = 0;
   currentImageIndex = 0;
+  isModalActive = false
 
   ngOnInit(){
     this.productById = Products.find( ({id}) => id = 1)!
@@ -43,5 +44,17 @@ export class ProductPageComponent {
 
   imgSelected($index: number){
     this.currentImageIndex = $index
+  }
+
+  showNextImage() {
+    this.currentImageIndex = (this.currentImageIndex + 1) % this.productById.image.length;
+  }
+
+  showPrevImage() {
+    this.currentImageIndex = (this.currentImageIndex - 1 + this.productById.image.length) % this.productById.image.length;
+  }
+
+  modalActive(){
+    this.isModalActive = !this.isModalActive
   }
 }

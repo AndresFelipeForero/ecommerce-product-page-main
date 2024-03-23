@@ -2,7 +2,7 @@
     <app-carousel class="app-carousel" [images]="productById.image"></app-carousel>
     <div class="gallery">
         <div class="big__contain">
-            <img [src]="productById.image[currentImageIndex]" alt="" class="big__img">
+            <img (click)="modalActive()" [src]="productById.image[currentImageIndex]" alt="image" class="big__img">
         </div>
         <div class="tiny__contain">
             @for (thumbnail of productById.thumbnail; track $index) {
@@ -46,10 +46,13 @@
         Coded by <a href="#">Andrés Forero</a>.
       </footer>
 
-      <div class="modal">
+      <div class="modal" [ngClass]="{'modal__active': isModalActive}">
           <div class="gallery2">
+              <button (click)="modalActive()" class="btn-close-img"></button>
             <div class="big__contain">
                 <img [src]="productById.image[currentImageIndex]" alt="" class="big__img">
+                <button class="btn__left" (click)="showPrevImage()"></button>
+                <button class="btn__right" (click)="showNextImage()"></button>
             </div>
             <div class="tiny__contain">
                 @for (thumbnail of productById.thumbnail; track $index) {

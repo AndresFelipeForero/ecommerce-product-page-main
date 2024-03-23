@@ -20,18 +20,19 @@
         transform: translateY(-50%);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 10px;
+        background-size: 9px;
         background-color: var(--White);
     }
 
     .btn__left {
-        left: 4.26vw;
+        left: 16px;
         background-image: url('../../../assets/images/icon-previous.svg');
     }
 
     .btn__right {
-        right: 4.26vw;
+        right: 16px;
         background-image: url('../../../assets/images/icon-next.svg');
+        background-position: 54% 50%;
     }
 
 }

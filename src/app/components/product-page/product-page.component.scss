@@ -161,6 +161,10 @@
         }
     }
 
+    .modal {
+        display: none;
+    }
+
 
 
     .attribution {
@@ -196,7 +200,7 @@
             gap: 34px;
 
             .big__img {
-                // height: 446px;
+                cursor: pointer;
                 width: 446px;
                 border-radius: 16px;
             }
@@ -312,15 +316,15 @@
         }
 
         .modal {
+            display: none;
             position: fixed;
             height: 100vh;
             width: 100%;
             top: 0;
             left: 0;
-            background-color: hsla(0, 0%, 0%,.75);
+            background-color: hsla(0, 0%, 0%, .75);
             z-index: 5;
-            display: grid;
-            place-items: center;
+
 
             .gallery2 {
                 position: absolute;
@@ -328,19 +332,72 @@
                 display: flex;
                 flex-direction: column;
                 gap: 34px;
-    
-                .big__img {
-                    // height: 446px;
-                    width: 446px;
-                    border-radius: 16px;
+                align-items: center;
+
+                .btn-close-img {
+                    height: 23px;
+                    background: url('../../../assets/images/icon-close.svg') no-repeat right;
+                    background-size: contain;
+                    width: 100%;
+                    justify-content: flex-end;
+                    cursor: pointer;
                 }
-    
+
+                .btn-close-img:hover {
+                    background-image: url('../../../assets/images/icon-close-hover.svg');
+                }
+
+                .big__contain {
+                    position: relative;
+
+                    .big__img {
+                        width: 550px;
+                        height: 550px;
+                        border-radius: 16px;
+                    }
+
+                    button {
+                        position: absolute;
+                        z-index: 2;
+                        border-radius: 50%;
+                        height: 58px;
+                        width: 58px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: 10px;
+                        background-color: var(--White);
+                        cursor: pointer;
+                    }
+
+                    .btn__left {
+                        left: -20px;
+                        background-image: url('../../../assets/images/icon-previous.svg');
+                    }
+
+                    .btn__left:hover {
+                        background-image: url('../../../assets/images/icon-previous-hover.svg');
+                    }
+
+                    .btn__right {
+                        right: -20px;
+                        background-image: url('../../../assets/images/icon-next.svg');
+                    }
+
+                    .btn__right:hover {
+                        background-image: url('../../../assets/images/icon-next-hover.svg');
+                    }
+                }
+
+
+
                 .tiny__contain {
                     display: flex;
                     width: 446px;
                     justify-content: space-between;
-    
-    
+
+
                     .thumbnails {
                         position: relative;
                         width: 90px;
@@ -348,12 +405,12 @@
                         border-radius: 12px;
                         overflow: hidden;
                         cursor: pointer;
-    
+
                         &.active {
                             border: 3px solid var(--Orange);
-    
+
                         }
-    
+
                         &::before {
                             content: "";
                             position: absolute;
@@ -366,11 +423,11 @@
                             z-index: -1;
                             transition: all ease .5s;
                         }
-    
+
                         &:hover::before {
                             z-index: 1;
                         }
-    
+
                         &.active::before {
                             z-index: 1;
                             opacity: .7;
@@ -381,13 +438,9 @@
 
         }
 
-
         .modal__active {
-            
-
+            display: grid;
+            place-items: center;
         }
-
-        
-
     }
 }
