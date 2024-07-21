@@ -1,0 +1,7 @@
+<div class="main-container">
+    <div class="card-container">
+        @for(productFather of products; track productFather.id){
+            <app-product-card  class="card" [product] = 'productFather'></app-product-card>
+        }
+    </div>
+</div>

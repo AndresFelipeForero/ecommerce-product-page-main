@@ -1,0 +1,43 @@
+.card {
+    border-radius: 8px;
+    position: relative;
+    width: 300px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: pointer;
+
+
+    .card__price {
+        padding: 8px;
+        position: absolute;
+    }
+
+    .card__img--container {
+        img {
+            aspect-ratio: 1/1;
+        }
+    }
+
+    .card__botton-info{
+        padding: 8px;
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+
+        .name {
+            white-space: nowrap;
+    overflow: hidden;
+    max-width: 85%;
+    text-overflow: ellipsis;
+    font-size: 16px;
+        }
+    
+        .card__icon--cart {
+            
+        }
+    }
+}

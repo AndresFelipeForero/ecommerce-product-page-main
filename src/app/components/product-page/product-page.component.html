@@ -23,7 +23,7 @@
 
         <div class="info__price">
             <div class="price">
-                <div class="final__price">${{ (productById.price * productById.discount / 100).toFixed(2)}}</div>
+                <div class="final__price">${{ (productById.price - productById.price * productById.discount / 100).toFixed(2)}}</div>
                 <div class="discount">{{productById.discount}}%</div>
             </div>
             <span class="original__price">${{productById.price.toFixed(2)}}</span>

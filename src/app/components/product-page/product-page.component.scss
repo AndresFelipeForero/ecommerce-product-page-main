@@ -205,6 +205,7 @@
                 cursor: pointer;
                 width: 446px;
                 border-radius: 16px;
+                aspect-ratio: 1;
             }
 
             .tiny__contain {
@@ -220,6 +221,10 @@
                     border-radius: 12px;
                     overflow: hidden;
                     cursor: pointer;
+
+                    img {
+                        aspect-ratio: 1;
+                    }
 
                     &.active {
                         border: 3px solid var(--Orange);
@@ -407,6 +412,10 @@
                         border-radius: 12px;
                         overflow: hidden;
                         cursor: pointer;
+
+                        img {
+                            aspect-ratio: 1;
+                        }
 
                         &.active {
                             border: 3px solid var(--Orange);
