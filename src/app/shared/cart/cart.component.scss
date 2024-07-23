@@ -1,16 +1,16 @@
 .variables {
     --Orange: hsl(26, 100%, 55%);
-  --Paleorange: hsl(25, 100%, 94%);
+    --Paleorange: hsl(25, 100%, 94%);
 
-  // ### Neutral
+    // ### Neutral
 
-  --Verydarkblue: hsl(220, 13%, 13%);
-  --Darkgrayishblue: hsl(219, 9%, 45%);
-  --Grayishblue: hsl(220, 14%, 75%);
-  --Lightgrayishblue: hsl(223, 64%, 98%);
-  --White: hsl(0, 0%, 100%);
-  // (with 75% opacity for lightbox background)
-  --Black: hsla(0, 0%, 0%);
+    --Verydarkblue: hsl(220, 13%, 13%);
+    --Darkgrayishblue: hsl(219, 9%, 45%);
+    --Grayishblue: hsl(220, 14%, 75%);
+    --Lightgrayishblue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    // (with 75% opacity for lightbox background)
+    --Black: hsla(0, 0%, 0%);
 }
 
 .container {
@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    box-shadow: 0px 12px 40px -2px hsla(220, 13%, 13%,.3);
+    box-shadow: 0px 12px 40px -2px hsla(220, 13%, 13%, .3);
 
 
     .title {
@@ -50,7 +50,7 @@
         margin-top: 24px;
         gap: 24px;
 
-        img{
+        img {
             width: 50px;
             aspect-ratio: 1;
             border-radius: 4px;
@@ -62,11 +62,16 @@
             justify-content: center;
             gap: 8px;
             flex-grow: 1;
+            max-width: 64%;
 
-            h3{
+            h3 {
                 font-size: 15px;
                 color: var(--Grayishblue);
                 font-weight: 400;
+                white-space: nowrap;
+                overflow: hidden;
+                max-width: 100%;
+                text-overflow: ellipsis;
             }
 
             .prices {
@@ -95,30 +100,30 @@
 
     .checkout__btn {
         min-height: 56px;
-            background-color: var(--Orange);
-            border-radius: 8px;
-            font-weight: 700;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            cursor: pointer;
-            color: var(--White);
-            margin: 32px 24px;
+        background-color: var(--Orange);
+        border-radius: 8px;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        cursor: pointer;
+        color: var(--White);
+        margin: 32px 24px;
     }
 
 
     // Cart Empt
 
-    .title__empty{
+    .title__empty {
         display: flex;
         align-items: center;
         height: 60px;
         margin: 0 24px;
         font-size: 12px;
     }
-    
-    .span__empty{
+
+    .span__empty {
         // border: 1px solid black;
         display: grid;
         height: 196px;
