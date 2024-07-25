@@ -1,7 +1,7 @@
+import { Subscription } from 'rxjs';
 import { Component, inject } from '@angular/core';
 import { CarouselComponent } from '../../shared/carousel/carousel.component';
 import { IProduct } from '../../interfaces/product';
-import { Products } from '../../data/Product-data';
 import { CartStoreService } from '../../services/cart-store.service';
 import { NgClass } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -23,17 +23,18 @@ export class ProductPageComponent {
   productAmount = 0;
   currentImageIndex = 0;
   isModalActive = false;
-
+  subscribe?:Subscription;
+  
   ngOnInit() {
-    this.activateRout.params.subscribe((params) => {
+     this.activateRout.params.subscribe((params) => {
       let ID: number = params['productID'];
-      this._iproductService
+      this.subscribe = this._iproductService
         .getById(ID)
         .subscribe(({ data: { id, attributes } }) => {
-          let mainImages = attributes.image.data.map((image: any) => {
+          let mainImages = attributes.image.data.map((image: any):string => {
             return image.attributes.formats.medium.url;
           });
-          let thumbnails = attributes.image.data.map((thumbnail: any) => {
+          let thumbnails = attributes.image.data.map((thumbnail: any):string => {
             return thumbnail.attributes.formats.thumbnail.url;
           });
 
@@ -67,7 +68,6 @@ export class ProductPageComponent {
         ...this.productById,
         quantity: this.productAmount,
       });
-      console.log(this.productAmount);
     }
   }
 
@@ -88,5 +88,9 @@ export class ProductPageComponent {
 
   modalActive() {
     this.isModalActive = !this.isModalActive;
+  }
+
+  ngOnDestroy() {
+    this.subscribe?.unsubscribe()
   }
 }

@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { Component, inject } from '@angular/core';
 import { ProductCardComponent } from '../../shared/product-card/product-card.component';
 import { IProduct } from '../../interfaces/product';
@@ -13,9 +14,10 @@ import { IproductService } from '../../services/iproduct.service';
 export class MainPageComponent {
   _iproductService = inject(IproductService);
   products?: IProduct[] = [];
+  subscribe?: Subscription;
 
   ngOnInit() {
-    this._iproductService.getAll().subscribe((products) => {
+    this.subscribe = this._iproductService.getAll().subscribe((products) => {
       this.products = products.data.map(({ id, attributes }: any) => {
         console.log(attributes.image.data[0].attributes.formats.medium.url);
         let mainImage = attributes.image.data[0].attributes.formats.medium.url;
@@ -25,5 +27,9 @@ export class MainPageComponent {
         return { id, ...attributes };
       });
     });
+  }
+
+  ngOnDestroy() {
+    this.subscribe?.unsubscribe()
   }
 }

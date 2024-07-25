@@ -5,13 +5,13 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 32px;
     justify-items: center;
+    padding: 0 24px;
 }
 
 
 @media (min-width: 700px) {
     
     .main-container {
-        // border: 1px solid black;
         padding: 92px 0 50px 0;
     }
 }
