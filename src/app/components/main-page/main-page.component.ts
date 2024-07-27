@@ -4,10 +4,12 @@ import { ProductCardComponent } from '../../shared/product-card/product-card.com
 import { IProduct } from '../../interfaces/product';
 import { IproductService } from '../../services/iproduct.service';
 
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, FormsModule],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
@@ -15,6 +17,7 @@ export class MainPageComponent {
   _iproductService = inject(IproductService);
   products?: IProduct[] = [];
   subscribe?: Subscription;
+  inputSearch = "";
 
   ngOnInit() {
     this.subscribe = this._iproductService.getAll().subscribe((products) => {
@@ -27,6 +30,10 @@ export class MainPageComponent {
         return { id, ...attributes };
       });
     });
+  }
+
+  countriesFilter(){
+
   }
 
   ngOnDestroy() {

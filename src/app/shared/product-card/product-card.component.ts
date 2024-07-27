@@ -13,5 +13,10 @@ import { RouterLink } from '@angular/router';
 export class ProductCardComponent {
 
   @Input() product!: IProduct;
+  imageSelected:number = 0 
+
+  changeImage(number: number){
+    this.imageSelected = number
+  }
 
 }

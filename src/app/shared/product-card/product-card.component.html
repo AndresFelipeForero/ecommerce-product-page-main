@@ -1,7 +1,8 @@
 <div class="card" [routerLink]="['/main/', product.id]">
     <div class="card__price">COL {{product.price}}</div>
-    <div class="card__img--container">
-        <img src="{{product.image[0]}}" alt="gas">
+    <div (mouseenter)="changeImage(1)"
+    (mouseleave)="changeImage(0)" class="card__img--container">
+        <img  src="{{product.image[imageSelected]}}" alt="gas">
     </div>
     <div class="card__botton-info">
         <h3 class="name">{{product.name}}</h3>

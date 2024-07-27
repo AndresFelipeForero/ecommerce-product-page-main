@@ -1,3 +1,64 @@
+.variables {
+    --Orange: hsl(26, 100%, 55%);
+    --Paleorange: hsl(25, 100%, 94%);
+
+    // ### Neutral
+
+    --Verydarkblue: hsl(220, 13%, 13%);
+    --Darkgrayishblue: hsl(219, 9%, 45%);
+    --Grayishblue: hsl(220, 14%, 75%);
+    --Lightgrayishblue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    // (with 75% opacity for lightbox background)
+    --Black: hsla(0, 0%, 0%);
+}
+
+/* ------------------search---------------- */
+
+.search-container {
+    margin: 24px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding-left:24px ;
+    align-items: center;
+    width: calc(100% - 48px);
+    height: 48px;
+    // max-width: 344px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    background-color: var(--WhiteDarkModeTextLightModeElements);
+  }
+  
+  input[type="text"] {
+    flex-grow: 1;
+    outline: none;
+    width: 100%;
+    color: var(--VeryDarkBlueLightModeText);
+    background-color: var(--WhiteDarkModeTextLightModeElements);
+  }
+  
+  input[type="text"]::placeholder {
+    color: var(--DarkGrayLightModeInput);
+  }
+  
+  .search-container:has(input[type="text"]:focus) {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .search-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url('../../../assets/images/icons8-búsqueda.svg');
+    background-size: cover;
+  
+    // &.dark-theme {
+    //   background-image: url('');
+    // }
+  }
+
+
+  /* ----------------cards-------------- */
 
 
 .card-container {
