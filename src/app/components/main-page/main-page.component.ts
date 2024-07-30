@@ -18,6 +18,7 @@ export class MainPageComponent {
   products?: IProduct[] = [];
   subscribe?: Subscription;
   inputSearch = "";
+  showProducts?: IProduct[];
 
   ngOnInit() {
     this.subscribe = this._iproductService.getAll().subscribe((products) => {
@@ -26,14 +27,16 @@ export class MainPageComponent {
         let mainImage = attributes.image.data[0].attributes.formats.medium.url;
         let hoverImage = attributes.image.data[1].attributes.formats.medium.url;
         attributes.image = [mainImage, hoverImage];
-        console.log({ ...attributes, id });
         return { id, ...attributes };
-      });
+        });
+      this.showProducts = this.products
     });
+
   }
 
-  countriesFilter(){
-
+  searchFilter(){
+    this.showProducts = this.products?.filter(({name}) =>  name.toLowerCase().includes(this.inputSearch.toLowerCase().trim())
+    )
   }
 
   ngOnDestroy() {

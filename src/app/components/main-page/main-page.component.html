@@ -1,13 +1,30 @@
 <div class="main-container">
     <div class="search-container">
         <span class="search-icon"></span>
-        <input (keyup)="countriesFilter()" type="text" placeholder="Search..." [(ngModel)]="inputSearch">
+        <input (keyup)="searchFilter()" type="text" placeholder="Search..." [(ngModel)]="inputSearch">
     </div>
+
+    <div class="brands-container">
+        <picture>
+            <img src="../../../assets/images/brands/Webp.net-resizeimage-adidas.png" alt="">
+        </picture>
+        <picture>
+            <img src="../../../assets/images/brands/Webp.net-resizeimage-jordan.png" alt="">
+        </picture>
+        <picture>
+            <img src="../../../assets/images/brands/Webp.net-resizeimage-nike.png" alt="">
+        </picture>
+        <picture>
+            <img src="../../../assets/images/brands/Webp.net-resizeimage-unde-armour.png" alt="">
+        </picture>
+        <picture>
+            <img src="../../../assets/images/brands/puma.png" alt="">
+        </picture>
+    </div>
+
     <div class="card-container">
-        @for(productFather of products; track productFather.id){
-            <app-product-card  class="card" [product] = 'productFather'></app-product-card>
+        @for(productFather of showProducts; track productFather.id){
+        <app-product-card class="card" [product]='productFather'></app-product-card>
         }
     </div>
-    
-    
 </div>

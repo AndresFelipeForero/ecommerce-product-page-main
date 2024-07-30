@@ -16,7 +16,7 @@
 /* ------------------search---------------- */
 
 .search-container {
-    margin: 24px auto;
+    margin: 0 auto 24px auto;
     display: flex;
     justify-content: space-between;
     gap: 24px;
@@ -55,6 +55,42 @@
     // &.dark-theme {
     //   background-image: url('');
     // }
+  }
+
+
+  /* ---------------brands---------- */
+
+  .brands-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid grey;
+    margin-bottom: 24px;
+
+    
+    
+    
+    picture{
+      // border: 1px solid grey;
+      opacity: .6;
+
+      
+      &:nth-child(2){
+        transform: scale(.9);
+      }
+      &:nth-child(5){
+        transform: scale(.8);
+      }
+      
+      img{
+        // border: 1px solid grey;
+        height: 50px;
+        object-position: center;
+        object-fit: contain;
+        -o-object-fit: contain;
+
+      }
+    }
   }
 
 
