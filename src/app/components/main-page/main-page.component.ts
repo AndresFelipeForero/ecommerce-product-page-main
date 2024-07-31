@@ -17,8 +17,9 @@ export class MainPageComponent {
   _iproductService = inject(IproductService);
   products?: IProduct[] = [];
   subscribe?: Subscription;
-  inputSearch = "";
+  inputSearch = '';
   showProducts?: IProduct[];
+  brandSelected: string = '';
 
   ngOnInit() {
     this.subscribe = this._iproductService.getAll().subscribe((products) => {
@@ -28,18 +29,22 @@ export class MainPageComponent {
         let hoverImage = attributes.image.data[1].attributes.formats.medium.url;
         attributes.image = [mainImage, hoverImage];
         return { id, ...attributes };
-        });
-      this.showProducts = this.products
+      });
+      this.showProducts = this.products;
     });
-
   }
 
-  searchFilter(){
-    this.showProducts = this.products?.filter(({name}) =>  name.toLowerCase().includes(this.inputSearch.toLowerCase().trim())
-    )
+  searchFilter() {
+    this.showProducts = this.products?.filter(({ name }) =>
+      name.toLowerCase().includes(this.inputSearch.toLowerCase().trim())
+    );
+  }
+
+  brandSelect(string: string) {
+    this.brandSelected = string;
   }
 
   ngOnDestroy() {
-    this.subscribe?.unsubscribe()
+    this.subscribe?.unsubscribe();
   }
 }

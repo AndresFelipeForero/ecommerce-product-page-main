@@ -5,20 +5,20 @@
     </div>
 
     <div class="brands-container">
-        <picture>
-            <img src="../../../assets/images/brands/Webp.net-resizeimage-adidas.png" alt="">
+        <picture (click)="brandSelect('adidas')" [class.brand-active]="brandSelected === 'adidas'">
+            <img src="../../../assets/images/brands/Webp.net-resizeimage-adidas.png" alt="adidas image">
         </picture>
-        <picture>
-            <img src="../../../assets/images/brands/Webp.net-resizeimage-jordan.png" alt="">
+        <picture (click)="brandSelect('jordan')" [class.brand-active]="brandSelected === 'jordan'">
+            <img src="../../../assets/images/brands/Webp.net-resizeimage-jordan.png" alt="jordan image">
         </picture>
-        <picture>
-            <img src="../../../assets/images/brands/Webp.net-resizeimage-nike.png" alt="">
+        <picture (click)="brandSelect('nike')" [class.brand-active]="brandSelected === 'nike'">
+            <img src="../../../assets/images/brands/Webp.net-resizeimage-nike.png" alt="nike image">
         </picture>
-        <picture>
-            <img src="../../../assets/images/brands/Webp.net-resizeimage-unde-armour.png" alt="">
+        <picture (click)="brandSelect('under armour')" [class.brand-active]="brandSelected === 'under armour'">
+            <img src="../../../assets/images/brands/Webp.net-resizeimage-unde-armour.png" alt="under armour image">
         </picture>
-        <picture>
-            <img src="../../../assets/images/brands/puma.png" alt="">
+        <picture (click)="brandSelect('puma')" [class.brand-active]="brandSelected === 'puma'">
+            <img src="../../../assets/images/brands/puma.png" alt="puma image">
         </picture>
     </div>
 

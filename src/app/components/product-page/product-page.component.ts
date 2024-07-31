@@ -6,11 +6,13 @@ import { CartStoreService } from '../../services/cart-store.service';
 import { NgClass } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { IproductService } from '../../services/iproduct.service';
+import { DecimalPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [CarouselComponent, NgClass],
+  imports: [CarouselComponent, NgClass, DecimalPipe],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss',
 })

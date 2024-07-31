@@ -1,5 +1,5 @@
 <div class="card" [routerLink]="['/main/', product.id]">
-    <div class="card__price">COL {{product.price}}</div>
+    <div class="card__price">${{product.price | number:'1.0-0'}}</div>
     <div (mouseenter)="changeImage(1)"
     (mouseleave)="changeImage(0)" class="card__img--container">
         <img  src="{{product.image[imageSelected]}}" alt="gas">

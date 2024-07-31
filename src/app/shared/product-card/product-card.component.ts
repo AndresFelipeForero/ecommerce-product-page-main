@@ -1,12 +1,14 @@
 import { IProduct } from '../../interfaces/product';
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { DecimalPipe } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, DecimalPipe],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'
 })
