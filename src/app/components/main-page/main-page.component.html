@@ -4,6 +4,7 @@
         <input (keyup)="searchFilter()" type="text" placeholder="Search..." [(ngModel)]="inputSearch">
     </div>
 
+    
     <div class="brands-container">
         <picture (click)="brandSelect('adidas')" [class.brand-active]="brandSelected === 'adidas'">
             <img src="../../../assets/images/brands/Webp.net-resizeimage-adidas.png" alt="adidas image">
@@ -20,6 +21,17 @@
         <picture (click)="brandSelect('puma')" [class.brand-active]="brandSelected === 'puma'">
             <img src="../../../assets/images/brands/puma.png" alt="puma image">
         </picture>
+    </div>
+
+    <div class="filter-section ">
+        @if (!brandSelected) {
+            <h2>{{'Popular' | titlecase}}</h2>
+        } @else {
+            <h2>{{brandSelected | titlecase}}</h2>
+        }
+            <button>
+                <img src="../../../assets/images/mezclador-horizontal-ajustes-30.png" alt="fiter image">
+            </button>
     </div>
 
 

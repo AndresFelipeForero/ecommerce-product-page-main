@@ -5,11 +5,12 @@ import { IProduct } from '../../interfaces/product';
 import { IproductService } from '../../services/iproduct.service';
 
 import { FormsModule } from '@angular/forms';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [ProductCardComponent, FormsModule],
+  imports: [ProductCardComponent, FormsModule, TitleCasePipe],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
