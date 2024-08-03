@@ -6,38 +6,84 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    cursor: pointer;
 
-
-    .card__price {
-        padding: 8px;
+    .price-info {
         position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        width: 100%;
+
+        .card__price {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--Verydarkblue);
+        }
+
+        .discount {
+            background-color: var(--Orange);
+            color: var(--White);
+            border-radius: 4px;
+            padding: 0 3px;
+            width: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .original__price {
+            opacity: .8;
+            font-size: 13px;
+            color: var(--Darkgrayishblue);
+            text-decoration: line-through;
+        }
     }
 
     .card__img--container {
+        cursor: pointer;
+
         img {
             aspect-ratio: 1/1;
         }
     }
 
-    .card__botton-info{
-        padding: 8px;
+    .card__botton-info {
+        padding: 12px;
         width: 100%;
         bottom: 0;
         position: absolute;
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         .name {
             white-space: nowrap;
-    overflow: hidden;
-    max-width: 85%;
-    text-overflow: ellipsis;
-    font-size: 16px;
+            overflow: hidden;
+            max-width: 85%;
+            text-overflow: ellipsis;
+            font-size: 13px;
+            color: var(--Verydarkblue);
         }
-    
+
         .card__icon--cart {
-            
+            background-color: var(--White);
+            border-radius: 50%;
+            height: 30px;
+            aspect-ratio: 1;
+            padding: 5px;
+            cursor: pointer;
+            transition: all .3s ease;
+
+            &:hover {
+                background-color: var(--Paleorange);
+                transform: scale(1.3);
+            }
+
+            img {
+                object-fit: fill;
+                -o-object-fit: fill;
+            }
         }
     }
 }

@@ -41,7 +41,9 @@ export class MainPageComponent {
   }
 
   brandSelect(string: string) {
-    this.brandSelected = string;
+    this.brandSelected === string
+      ? (this.brandSelected = '')
+      : (this.brandSelected = string);
   }
 
   ngOnDestroy() {

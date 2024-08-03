@@ -24,18 +24,18 @@
   align-items: center;
   width: calc(100% - 48px);
   height: 48px;
-  // max-width: 344px;
+  max-width: 400px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 25px;
-  background-color: var(--WhiteDarkModeTextLightModeElements);
+  background-color: var(--White);
 }
 
 input[type="text"] {
   flex-grow: 1;
   outline: none;
   width: 100%;
-  color: var(--VeryDarkBlueLightModeText);
-  background-color: var(--WhiteDarkModeTextLightModeElements);
+  color: var(--Darkgrayishblue);
+  background-color: var(--White);
 }
 
 input[type="text"]::placeholder {
@@ -67,8 +67,6 @@ input[type="text"]::placeholder {
   margin-bottom: 24px;
 
 
-
-
   picture {
     opacity: .5;
     cursor: pointer;
@@ -94,6 +92,8 @@ input[type="text"]::placeholder {
       transform: scale(1);
     }
 
+    
+
 
     img {
       // transform: scale(1.5);
@@ -103,15 +103,15 @@ input[type="text"]::placeholder {
       -o-object-fit: contain;
       transition: transform .3s ease;
 
-      &.brand-active{
-        transform: scale(1.5);
-      }
-
-
       &:hover {
         opacity: 1;
         transform: scale(1.5);
       }
+
+      &.brand-active {
+        transform: scale(1.5);
+      }
+      
     }
   }
 }

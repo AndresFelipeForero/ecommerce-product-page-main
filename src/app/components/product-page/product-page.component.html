@@ -24,9 +24,13 @@
         <div class="info__price">
             <div class="price">
                 <div class="final__price">${{ (productById.price - productById.price * productById.discount / 100) | number:'1.0-0'}}</div>
-                <div class="discount">{{productById.discount}}%</div>
+                @if (productById.discount !== 0) {
+                    <div class="discount">{{productById.discount}}%</div>
+                }
             </div>
-            <span class="original__price">${{productById.price | number:'1.0-0'}}</span>
+            @if (productById.discount !== 0) {
+                <span class="original__price">${{productById.price | number:'1.0-0'}}</span>
+            }
         </div>
 
         <div class="accions">

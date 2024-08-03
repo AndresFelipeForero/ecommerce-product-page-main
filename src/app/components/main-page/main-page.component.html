@@ -22,9 +22,18 @@
         </picture>
     </div>
 
+
     <div class="card-container">
         @for(productFather of showProducts; track productFather.id){
-        <app-product-card class="card" [product]='productFather'></app-product-card>
+            @defer (on viewport) {
+                <app-product-card class="card" [product]='productFather'></app-product-card>
+            }
+            @placeholder {
+                <span>cargando...</span>
+            }
         }
     </div>
+
+
+
 </div>
