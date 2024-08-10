@@ -8,7 +8,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class IproductService {
 
 httpClient = inject(HttpClient);
-baseURL: string = 'https://generous-vibrancy-production.up.railway.app/api/i-products';
+// baseURL: string = 'https://generous-vibrancy-production.up.railway.app/api/i-products';
+baseURL: string = 'http://localhost:1337/api/i-products';
+
 populate: string = '?populate=*'
 
 getAll() {
