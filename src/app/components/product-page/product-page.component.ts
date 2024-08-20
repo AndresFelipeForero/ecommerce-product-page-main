@@ -22,7 +22,7 @@ export class ProductPageComponent {
   activateRout = inject(ActivatedRoute);
 
   productById!: IProduct;
-  productAmount = 0;
+  productAmount = 1;
   currentImageIndex = 0;
   isModalActive = false;
   subscribe?:Subscription;
@@ -59,18 +59,16 @@ export class ProductPageComponent {
   }
 
   minus() {
-    if (this.productAmount > 0) {
+    if (this.productAmount > 1) {
       this.productAmount--;
     }
   }
 
   addToCart() {
-    if (this.productAmount > 0) {
       this._storeService.addProduct({
         ...this.productById,
         quantity: this.productAmount,
       });
-    }
   }
 
   imgSelected($index: number) {

@@ -1,0 +1,38 @@
+<form [formGroup]="filterForm">
+    <div>
+      <label for="company">Company</label>
+      <input id="company" formControlName="company" placeholder="Enter company name">
+    </div>
+  
+    <div>
+      <label for="minPrice">Min Price</label>
+      <input id="minPrice" type="number" formControlName="minPrice">
+    </div>
+  
+    <div>
+      <label for="maxPrice">Max Price</label>
+      <input id="maxPrice" type="number" formControlName="maxPrice">
+    </div>
+  
+    <div>
+      <label for="searchQuery">Search</label>
+      <input id="searchQuery" formControlName="searchQuery" placeholder="Search products">
+    </div>
+  </form>
+ 
+  @if (products.length > 0){
+    <div>
+        <h3>Products</h3>
+        @for(product of products; track product.name){
+
+            <div>
+                <h2>{{ product.attributes.name }}</h2>
+                <p>{{ product.attributes.description }}</p>
+                <img [src]="product.attributes.image.data[0].attributes.url" alt="{{ product.attributes.name }}">
+                <p>{{ product.attributes.price }}</p>
+              </div>
+        }
+      </div>
+  }
+  
+  

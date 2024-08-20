@@ -13,7 +13,7 @@
         </div>
     <div class="card__botton-info">
         <h3 class="name">{{product.name}}</h3>
-        <div class="card__icon--cart">
+        <div class="card__icon--cart" (click)="addOneToCart(product)">
             <img src="../../../assets/images/icon-cart-add.svg" alt="cart image">
         </div>
     </div>

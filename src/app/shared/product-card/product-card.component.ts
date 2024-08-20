@@ -1,7 +1,8 @@
 import { IProduct } from '../../interfaces/product';
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
+import { CartStoreService } from '../../services/cart-store.service';
 
 
 
@@ -14,6 +15,8 @@ import { DecimalPipe } from '@angular/common';
 })
 export class ProductCardComponent {
 
+  _storeService = inject(CartStoreService);
+
   @Input() product!: IProduct;
   imageSelected:number = 0 
 
@@ -21,4 +24,7 @@ export class ProductCardComponent {
     this.imageSelected = number
   }
 
+  addOneToCart(product: IProduct){
+    this._storeService.addProduct({...product, quantity: 1})
+  }
 }

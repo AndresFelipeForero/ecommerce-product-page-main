@@ -26,6 +26,7 @@ export class CartStoreService {
   }
 
   addProduct(product: IProductCart) {
+    console.log(product)
     let currProducts = this.cart$.getValue();
     let productFinded = currProducts.find(({ id }) => id === product.id);
     if (productFinded) {

@@ -1,3 +1,4 @@
+import { ProductFilterFormComponent } from './../../shared/product-filter-form/product-filter-form.component';
 import { Subscription } from 'rxjs';
 import { Component, inject } from '@angular/core';
 import { ProductCardComponent } from '../../shared/product-card/product-card.component';
@@ -10,7 +11,7 @@ import { TitleCasePipe } from '@angular/common';
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [ProductCardComponent, FormsModule, TitleCasePipe],
+  imports: [ProductCardComponent, FormsModule, TitleCasePipe, ProductFilterFormComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
@@ -25,10 +26,12 @@ export class MainPageComponent {
   ngOnInit() {
     this.subscribe = this._iproductService.getAll().subscribe((products) => {
       this.products = products.data.map(({ id, attributes }: any) => {
-        console.log(attributes.image.data[0].attributes.formats.medium.url);
-        let mainImage = attributes.image.data[0].attributes.formats.medium.url;
-        let hoverImage = attributes.image.data[1].attributes.formats.medium.url;
+        console.log(attributes.image.data[0].attributes.formats.thumbnail.url);
+        let mainImage: string = attributes.image.data[0].attributes.formats.medium.url;
+        let hoverImage: string = attributes.image.data[1].attributes.formats.medium.url;
+        let thumbnail: string = attributes.image.data[0].attributes.formats.thumbnail.url
         attributes.image = [mainImage, hoverImage];
+        attributes.thumbnail = [thumbnail]
         return { id, ...attributes };
       });
       this.showProducts = this.products;

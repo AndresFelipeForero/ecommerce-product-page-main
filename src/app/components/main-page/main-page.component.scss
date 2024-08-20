@@ -16,7 +16,7 @@
 /* ------------------search---------------- */
 
 .search-container {
-  margin: 0 auto 24px auto;
+  margin: 0 auto 32px auto;
   display: flex;
   justify-content: space-between;
   gap: 24px;
@@ -64,7 +64,7 @@ input[type="text"]::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 
 
   picture {

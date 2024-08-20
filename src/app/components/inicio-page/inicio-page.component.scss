@@ -77,3 +77,15 @@
 @keyframes entrance {
     from {filter: blur(20px); transform: scale(1.4);}
 }
+
+
+@media (min-width: 600px) {
+
+    .inicio-container {
+
+        picture {
+            height: auto;
+            width: 300px;
+        }
+    }
+}
