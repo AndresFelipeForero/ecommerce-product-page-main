@@ -8,6 +8,4 @@ import { RouterLink } from '@angular/router';
   templateUrl: './inicio-page.component.html',
   styleUrl: './inicio-page.component.scss'
 })
-export class InicioPageComponent {
-
-}
+export class InicioPageComponent {}
