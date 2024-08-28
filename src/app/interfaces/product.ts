@@ -7,6 +7,7 @@ export interface IProduct {
   discount: number;
   image: string[];
   thumbnail: string[];
+  finalPrice: number
 }
 
 export interface IProductCart extends IProduct {

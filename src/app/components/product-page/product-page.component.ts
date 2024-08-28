@@ -48,7 +48,8 @@ export class ProductPageComponent {
             price: attributes.price,
             discount: attributes.discount,
             image: mainImages,
-            thumbnail: thumbnails
+            thumbnail: thumbnails,
+            finalPrice: attributes.finalPrice
           };
         });
     });

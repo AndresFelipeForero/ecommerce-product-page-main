@@ -1,6 +1,6 @@
 <div class="card">
     <div class="price-info">
-        <div class="card__price">${{(product.price - product.price * product.discount / 100) | number:'1.0-0'}}</div>
+        <div class="card__price">${{product.finalPrice | number:'1.0-0'}}</div>
         @if (product.discount !== 0) {
             <div class="discount">{{product.discount}}%</div>
 

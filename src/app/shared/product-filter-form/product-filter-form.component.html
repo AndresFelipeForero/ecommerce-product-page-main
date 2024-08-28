@@ -1,8 +1,18 @@
+<span>Companys:</span>
+  @for(company of companys; track company){
+    <div class="companys">
+      <input type="checkbox" id="{{company}}" name="{{company}}" value="{{company}}" (change)="companyChecked(company)">
+      <label for="{{company}}">{{company}}</label>
+    </div>
+  }
+
 <form [formGroup]="filterForm">
-    <div>
+
+    <div >
       <label for="company">Company</label>
       <input id="company" formControlName="company" placeholder="Enter company name">
     </div>
+    
   
     <div>
       <label for="minPrice">Min Price</label>

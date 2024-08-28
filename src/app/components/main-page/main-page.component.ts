@@ -7,6 +7,8 @@ import { IproductService } from '../../services/iproduct.service';
 
 import { FormsModule } from '@angular/forms';
 import { TitleCasePipe } from '@angular/common';
+import { FilterDataService } from '../../services/filter-data.service';
+
 
 @Component({
   selector: 'app-main-page',
@@ -17,6 +19,7 @@ import { TitleCasePipe } from '@angular/common';
 })
 export class MainPageComponent {
   _iproductService = inject(IproductService);
+  _filterStore = inject(FilterDataService)
   products?: IProduct[] = [];
   subscribe?: Subscription;
   inputSearch = '';
@@ -24,18 +27,21 @@ export class MainPageComponent {
   brandSelected: string = '';
 
   ngOnInit() {
-    this.subscribe = this._iproductService.getAll().subscribe((products) => {
+    this.subscribe = this._iproductService.getFilters().subscribe((products) => {
       this.products = products.data.map(({ id, attributes }: any) => {
-        console.log(attributes.image.data[0].attributes.formats.thumbnail.url);
+
         let mainImage: string = attributes.image.data[0].attributes.formats.medium.url;
         let hoverImage: string = attributes.image.data[1].attributes.formats.medium.url;
         let thumbnail: string = attributes.image.data[0].attributes.formats.thumbnail.url
         attributes.image = [mainImage, hoverImage];
         attributes.thumbnail = [thumbnail]
+        
         return { id, ...attributes };
       });
+
       this.showProducts = this.products;
-    });
+    }
+  );
   }
 
   searchFilter() {

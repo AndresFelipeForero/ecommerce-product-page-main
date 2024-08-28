@@ -6,7 +6,7 @@
 
   <ul class="nav__ul" [ngClass]="{'nav__ul--active': isNavActive}">
 
-    <li routerLinkActive="active" [routerLink]="''" class="nav__li" (click)="closeNav()"><a class="nav__a">Inicio</a>
+    <li routerLinkActive="active" [routerLink]="'/'" [routerLinkActiveOptions]="{ exact: true }" class="nav__li" (click)="closeNav()"><a class="nav__a">Inicio</a>
     </li>
     <li routerLinkActive="active" [routerLink]="'/main'" class="nav__li" (click)="closeNav()"><a class="nav__a">Collections</a>
     </li>

@@ -4,13 +4,13 @@ import { CartComponent } from '../cart/cart.component';
 import { IProductCart } from '../../interfaces/product';
 import { CartStoreService } from '../../services/cart-store.service';
 import { Subscription } from 'rxjs';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [NgClass, CartComponent, RouterLink],
+  imports: [NgClass, CartComponent, RouterLinkActive, RouterLink],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
 })

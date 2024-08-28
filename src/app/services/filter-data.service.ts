@@ -7,9 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class FilterDataService {
 
-  private filteredData$ = new BehaviorSubject<any>({});
-
-  constructor() { }
+  private filteredData$ = new BehaviorSubject<any>({page: 1, pageSize: 5, minPrice: 1, maxPrice: 2000000, searchQuery: "", company: ""});
 
   private setProducts(filters: any) {
     this.filteredData$.next(filters);
@@ -22,6 +20,7 @@ export class FilterDataService {
   }
   
   getFilters(){
-    return this.filteredData$.getValue()
+    return this.filteredData$.asObservable()
   }
+
 }

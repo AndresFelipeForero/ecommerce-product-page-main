@@ -1,5 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { FilterDataService } from './filter-data.service';
+import { Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,12 +9,13 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class IproductService {
   httpClient = inject(HttpClient);
   // baseURL: string = 'https://generous-vibrancy-production.up.railway.app/api/i-products';
+  _filterStore = inject(FilterDataService);
   baseURL: string = 'http://localhost:1337/api/i-products';
 
   populate: string = '?populate=*';
 
   getAll() {
-    return this.httpClient.get<any>(`${this.baseURL}${this.populate}`);
+    return this.httpClient.get<any>(`${this.baseURL}`);
   }
 
   getById(productId: number) {
@@ -21,29 +24,31 @@ export class IproductService {
     );
   }
 
-  getFilters(
-    company: string,
-    minPrice: number,
-    maxPrice: number,
-    searchQuery: string,
-    page: number = 1,
-    pageSize: number = 8
-  ) {
-    let params = new HttpParams()
-      .set('filters[price][$gte]', minPrice.toString())
-      .set('filters[price][$lte]', maxPrice.toString())
-      .set('pagination[page]', page.toString())
-      .set('pagination[pageSize]', pageSize.toString())
-      .set('populate', '*');
-    // console.log(company)
-    if (company) {
-      params = params.set('filters[company][$eq]', company);
-      }
-    if (searchQuery) {
-      params = params.set('filters[name][$containsi]', searchQuery);
-      }
+  getFilters(): Observable<any> {
+    return this._filterStore.getFilters().pipe(
+      switchMap((filter) => {
+        let { minPrice, maxPrice, page, pageSize, searchQuery, company } =
+          filter;
 
-      console.log(params)
-      return this.httpClient.get<any>(`${this.baseURL}`, {params});
+          console.log({filter})
+          
+        let params = new HttpParams()
+          .set('filters[finalPrice][$gte]', minPrice.toString())
+          .set('filters[finalPrice][$lte]', maxPrice.toString())
+          .set('pagination[page]', page.toString())
+          .set('pagination[pageSize]', pageSize.toString())
+          .set('populate', 'image');
+
+        if (company) {
+          params = params.set('filters[company][$eq]', company);
+        }
+
+        if (searchQuery) {
+          params = params.set('filters[name][$containsi]', searchQuery);
+        }
+
+        return this.httpClient.get<any>(`${this.baseURL}`, { params });
+      })
+    );
   }
 }
