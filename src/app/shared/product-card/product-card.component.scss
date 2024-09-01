@@ -1,3 +1,20 @@
+@keyframes Blink {
+	0%,
+    94%,
+	96%,
+    98%,
+	100% {
+		opacity: 1;
+	}
+
+	95%,
+	97%,
+    99% {
+		opacity: 0;
+	}
+}
+
+
 .card {
     border-radius: 8px;
     position: relative;
@@ -73,7 +90,9 @@
             padding: 6px;
             cursor: pointer;
             transition: transform .3s ease;
-            background-color: var(--Verydarkblue);
+            background-image: linear-gradient(45deg, hsl(220, 13%, 13%) 40%, transparent);
+            box-shadow: -1px 1px 3px var(--Darkgrayishblue);
+            animation: Blink 20s ease 5s infinite normal     forwards;
 
             &:hover {
                 transform: scale(1.3);

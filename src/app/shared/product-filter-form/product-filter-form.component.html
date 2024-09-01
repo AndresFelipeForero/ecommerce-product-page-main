@@ -1,48 +1,51 @@
-<span>Companys:</span>
-  @for(company of companys; track company){
+<div class="form-container">
+  <div class="company-filters">
+    <span>Companys:</span>
+    @for(comp of showCompanys; track comp.company){
     <div class="companys">
-      <input type="checkbox" id="{{company}}" name="{{company}}" value="{{company}}" (change)="companyChecked(company)">
-      <label for="{{company}}">{{company}}</label>
+      <input type="checkbox" id="{{comp.company}}" name="{{comp.company}}" value="{{comp.company}}"
+        [checked]="comp.checked" (change)="companyChecked(comp.company)">
+      <label for="{{comp.company}}">{{comp.company}}</label>
     </div>
-  }
+    }
+  </div>
 
-<form [formGroup]="filterForm">
+  <form class="form-filter-react" [formGroup]="filterForm">
 
-    <div >
-      <label for="company">Company</label>
-      <input id="company" formControlName="company" placeholder="Enter company name">
-    </div>
-    
-  
-    <div>
+    <!-- <div >
+        <label for="company">Company</label>
+        <input id="company" formControlName="company" placeholder="Enter company name">
+      </div> -->
+
+
+    <div class="min-price">
       <label for="minPrice">Min Price</label>
       <input id="minPrice" type="number" formControlName="minPrice">
     </div>
-  
-    <div>
+
+    <div class="max-price">
       <label for="maxPrice">Max Price</label>
       <input id="maxPrice" type="number" formControlName="maxPrice">
     </div>
-  
-    <div>
+
+    <div class="search">
       <label for="searchQuery">Search</label>
       <input id="searchQuery" formControlName="searchQuery" placeholder="Search products">
     </div>
   </form>
- 
-  @if (products.length > 0){
-    <div>
-        <h3>Products</h3>
-        @for(product of products; track product.name){
+</div>
 
-            <div>
-                <h2>{{ product.attributes.name }}</h2>
-                <p>{{ product.attributes.description }}</p>
-                <img [src]="product.attributes.image.data[0].attributes.url" alt="{{ product.attributes.name }}">
-                <p>{{ product.attributes.price }}</p>
-              </div>
-        }
-      </div>
+@if (products.length > 0){
+<div>
+  <h3>Products</h3>
+  @for(product of products; track product.name){
+
+  <div>
+    <h2>{{ product.attributes.name }}</h2>
+    <p>{{ product.attributes.description }}</p>
+    <img [src]="product.attributes.image.data[0].attributes.url" alt="{{ product.attributes.name }}">
+    <p>{{ product.attributes.price }}</p>
+  </div>
   }
-  
-  
+</div>
+}

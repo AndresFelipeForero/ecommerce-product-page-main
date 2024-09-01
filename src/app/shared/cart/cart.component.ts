@@ -21,7 +21,6 @@ export class CartComponent {
     this.subscription = this._storeService
       .getProducts()
       .subscribe((products) => {
-        console.log(products);
         if (!products.length) {
           this.cartFill = false;
         } else {

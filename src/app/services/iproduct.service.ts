@@ -2,12 +2,14 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { FilterDataService } from './filter-data.service';
 import { Observable, switchMap } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IproductService {
   httpClient = inject(HttpClient);
+  activateRout = inject(ActivatedRoute);
   // baseURL: string = 'https://generous-vibrancy-production.up.railway.app/api/i-products';
   _filterStore = inject(FilterDataService);
   baseURL: string = 'http://localhost:1337/api/i-products';
@@ -30,8 +32,6 @@ export class IproductService {
         let { minPrice, maxPrice, page, pageSize, searchQuery, company } =
           filter;
 
-          console.log({filter})
-          
         let params = new HttpParams()
           .set('filters[finalPrice][$gte]', minPrice.toString())
           .set('filters[finalPrice][$lte]', maxPrice.toString())
@@ -39,8 +39,18 @@ export class IproductService {
           .set('pagination[pageSize]', pageSize.toString())
           .set('populate', 'image');
 
+        if (company === undefined) {
+        }
+
         if (company) {
-          params = params.set('filters[company][$eq]', company);
+          if (Array.isArray(company)) {
+            company.forEach(
+              (company: string) =>
+                (params = params.append('filters[company][$eq]', company))
+            );
+          } else {
+            params = params.set('filters[company][$eq]', company);
+          }
         }
 
         if (searchQuery) {

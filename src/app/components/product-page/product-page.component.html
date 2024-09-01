@@ -1,5 +1,8 @@
 <div class="container">
-    <app-carousel class="app-carousel" [images]="productById.image"></app-carousel>
+    @if(productById) {
+
+        <app-carousel class="app-carousel" [images]="productById.image"></app-carousel>
+    
     <div class="gallery">
         <div class="big__contain">
             <img (click)="modalActive()" [src]="productById.image[currentImageIndex]" alt="image" class="big__img">
@@ -67,5 +70,7 @@
             </div>
               </div>
       </div>
+
+    }
     
 </div>

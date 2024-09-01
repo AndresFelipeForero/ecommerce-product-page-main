@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import {
   FormBuilder,
@@ -10,6 +10,7 @@ import { debounceTime, map } from 'rxjs/operators';
 import { FilterDataService } from '../../services/filter-data.service';
 import { Subscription } from 'rxjs';
 import { IproductService } from '../../services/iproduct.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-filter-form',
@@ -22,10 +23,11 @@ export class ProductFilterFormComponent {
   private fb = inject(FormBuilder);
   _filterStore = inject(FilterDataService);
   _iProductService = inject(IproductService);
+  activateRout = inject(ActivatedRoute);
   filterForm!: FormGroup;
   products: any[] = [];
   subscribe?: Subscription;
-  companys?: string[] = [];
+  showCompanys!: any[];
 
   ngOnInit() {
     this._iProductService
@@ -41,10 +43,38 @@ export class ProductFilterFormComponent {
         })
       )
       .subscribe((result) => {
-        this.companys = Array.from(new Set(result.companyArray));
+        this.showCompanys = Array.from(new Set(result.companyArray)).map(company => {
+          return {company, checked: false} 
+        });
 
-        this.filterForm.patchValue({
-          maxPrice: Math.max(...result.finalPriceArray),
+        this.activateRout.queryParams.subscribe((params) => {
+          if (params) {
+
+            let companyArray: any[] = [];
+            if (params['company']) {
+
+              if (!Array.isArray(params['company'])) {
+                companyArray = [...[params['company']]];
+                } else if (params['company'] === undefined){
+                  params['company'] = []
+                }
+                else {
+                  companyArray = params['company'];
+              }
+            }
+            this.showCompanys?.forEach((compCheck)=> {
+              let index = companyArray.findIndex(el => el === compCheck.company)
+              if (index !== -1) {
+                compCheck.checked = true
+              }
+            })
+
+            this.filterForm.patchValue({
+              maxPrice: Math.max(...result.finalPriceArray),
+              ...params,
+              company: companyArray,
+            });
+          }
         });
       });
 
@@ -62,10 +92,8 @@ export class ProductFilterFormComponent {
 
   onFormChange(): void {
     if (this.filterForm.valid) {
-      delete this.filterForm.value.company;
       this._filterStore.addFilters(this.filterForm.value);
     }
-    // console.log(this.companys);
   }
 
   companyChecked(company: string) {
@@ -78,7 +106,7 @@ export class ProductFilterFormComponent {
     } else {
       companyArray.splice(index, 1);
     }
-    this.filterForm.patchValue({company: companyArray});
+      this.filterForm.patchValue({ company: companyArray });
   }
 
   ngOnDestroy() {
