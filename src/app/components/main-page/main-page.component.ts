@@ -6,14 +6,14 @@ import { IProduct } from '../../interfaces/product';
 import { IproductService } from '../../services/iproduct.service';
 
 import { FormsModule } from '@angular/forms';
-import { TitleCasePipe } from '@angular/common';
+import { NgClass, TitleCasePipe } from '@angular/common';
 import { FilterDataService } from '../../services/filter-data.service';
 
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [ProductCardComponent, FormsModule, TitleCasePipe, ProductFilterFormComponent],
+  imports: [ProductCardComponent, FormsModule, TitleCasePipe, ProductFilterFormComponent, NgClass],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
@@ -25,6 +25,7 @@ export class MainPageComponent {
   inputSearch = '';
   showProducts?: IProduct[];
   brandSelected: string = '';
+  filterActive: boolean = false;
 
   ngOnInit() {
     this.subscribe = this._iproductService.getFilters().subscribe((products) => {
@@ -54,6 +55,10 @@ export class MainPageComponent {
     this.brandSelected === string
       ? (this.brandSelected = '')
       : (this.brandSelected = string);
+  }
+
+  filterActiver(){
+    this.filterActive = !this.filterActive
   }
 
   ngOnDestroy() {

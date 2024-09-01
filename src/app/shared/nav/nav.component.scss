@@ -306,41 +306,17 @@
         }
     }
 
-    @keyframes hideDesk {
-
-        0% {
-            display: block;
-            transform: scale(1);
-        }
-    
-        100% {
-            transform: scale(0);
-        }
-    }
-    
-    @keyframes showDesk {
-    
-        0% {
-            transform: scale(0);
-        }
-    
-        100% {
-            transform: scale(1);
-            display: block;
-        }
-    }
-
     .cart {
         position: absolute;
-    transform: translateX(0);
+        transform: translateX(0);
         top: 90px;
         left: 57vw;
         animation: none;
-        animation: hideDesk .3s ease-in;
+        animation: fadeOutBottom .3s ease-in;
     }
     
     .cart__active {
-        animation: showDesk .3s alternate ease-in;
+        animation: fadeInBottom .3s alternate ease-in;
         display: block;
     }
 

@@ -29,13 +29,13 @@
         } @else {
             <h2>{{brandSelected | titlecase}}</h2>
         }
-            <button>
+            <button [class.active]="filterActive" (click)="filterActiver()">
                 <img src="../../../assets/images/mezclador-horizontal-ajustes-30.png" alt="fiter image">
             </button>
     </div>
 
 
-    <app-product-filter-form></app-product-filter-form>
+    <app-product-filter-form class="filter-form-container" [class.active]="filterActive"></app-product-filter-form>
 
 
     <div class="card-container">

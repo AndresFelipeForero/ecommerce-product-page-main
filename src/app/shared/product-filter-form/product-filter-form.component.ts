@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 
 import {
   FormBuilder,
@@ -28,6 +28,7 @@ export class ProductFilterFormComponent {
   products: any[] = [];
   subscribe?: Subscription;
   showCompanys!: any[];
+
 
   ngOnInit() {
     this._iProductService

@@ -13,6 +13,8 @@
   --Black: hsla(0, 0%, 0%);
 }
 
+
+
 /* ------------------search---------------- */
 
 .search-container {
@@ -33,12 +35,14 @@
 input[type="text"] {
   flex-grow: 1;
   outline: none;
+  font-size: 14px;
   width: 100%;
   color: var(--Darkgrayishblue);
   background-color: var(--White);
 }
 
 input[type="text"]::placeholder {
+  font-size: 14px;
   color: var(--DarkGrayLightModeInput);
 }
 
@@ -128,6 +132,8 @@ input[type="text"]::placeholder {
   h2 {
     font-size: 16px;
     color: var(--Verydarkblue);
+    letter-spacing: 1.8px;
+    filter: drop-shadow(-2px 2px 2px var(--Orange));
   }
 
   button {
@@ -145,6 +151,12 @@ input[type="text"]::placeholder {
       border: 1px solid var(--Darkgrayishblue);
     }
 
+    &.active {
+      border: 1px solid var(--Darkgrayishblue);
+      filter: drop-shadow(-2px 2px 2px var(--Orange));
+
+    }
+
     img {
       object-fit: cover;
       -o-object-fit: cover;
@@ -155,6 +167,17 @@ input[type="text"]::placeholder {
 }
 
 
+/* ----------------filter form-------------- */
+
+.filter-form-container {
+  display: none;
+  animation: fadeOutBottom .4s ease-in;
+
+  &.active {
+    animation: fadeInBottom .4s alternate ease-in;
+    display: block;
+  }
+}
 /* ----------------cards-------------- */
 
 
