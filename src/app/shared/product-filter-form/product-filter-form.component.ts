@@ -63,12 +63,6 @@ export class ProductFilterFormComponent {
                   companyArray = params['company'];
               }
             }
-            this.showCompanys?.forEach((compCheck)=> {
-              let index = companyArray.findIndex(el => el === compCheck.company)
-              if (index !== -1) {
-                compCheck.checked = true
-              }
-            })
 
             this.filterForm.patchValue({
               maxPrice: Math.max(...result.finalPriceArray),
@@ -95,6 +89,7 @@ export class ProductFilterFormComponent {
     if (this.filterForm.valid) {
       this._filterStore.addFilters(this.filterForm.value);
     }
+    this.putCheckeds()
   }
 
   companyChecked(company: string) {
@@ -108,6 +103,18 @@ export class ProductFilterFormComponent {
       companyArray.splice(index, 1);
     }
       this.filterForm.patchValue({ company: companyArray });
+  }
+
+  putCheckeds() {
+    let companyArray = this.filterForm.get('company')?.value
+    this.showCompanys?.forEach((compCheck)=> {
+      let index = companyArray.findIndex((el:string) => el === compCheck.company)
+      if (index !== -1) {
+        compCheck.checked = true
+      } else {
+        compCheck.checked = false
+      }
+    })
   }
 
   ngOnDestroy() {

@@ -190,7 +190,18 @@ input[type="text"]::placeholder {
 }
 
 
-@media (min-width: 700px) {
+@media (min-width: 513px) {
+  .filter-form-container {
+    animation: fadeOutBottom513 .4s ease-in;
+  
+    &.active {
+      animation: fadeInBottom513 .4s alternate ease-in;
+    }
+  }
+}
+
+
+@media (min-width: 715px) {
 
   .main-container {
     padding: 48px 0 50px 0;
@@ -200,6 +211,14 @@ input[type="text"]::placeholder {
 
       button {
         height: 40px;
+      }
+    }
+
+    .filter-form-container {
+      animation: fadeOutBottom715 .4s ease-in;
+    
+      &.active {
+        animation: fadeInBottom715 .4s alternate ease-in;
       }
     }
   }

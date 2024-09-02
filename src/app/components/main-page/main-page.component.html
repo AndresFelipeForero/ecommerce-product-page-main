@@ -1,7 +1,7 @@
 <div class="main-container">
     <div class="search-container">
-        <span class="search-icon"></span>
-        <input (keyup)="searchFilter()" type="text" placeholder="Search..." [(ngModel)]="inputSearch">
+            <span class="search-icon"></span>
+            <input type="text" placeholder="Search..." [formControl]="searchControl">
     </div>
 
     
