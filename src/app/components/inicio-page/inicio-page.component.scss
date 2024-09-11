@@ -19,10 +19,10 @@
 
     picture {
         padding: 24px;
-        background-image: linear-gradient(to bottom, 
-        rgba(0, 0, 0, 0) 10%, 
-        rgba(0, 0, 0, 0.5) 50%, 
-        rgba(0, 0, 0, 0.7) 90%),  url('../../../assets/images/layout-image-sneaker.webp');
+        background-image: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0) 10%,
+                rgba(0, 0, 0, 0.5) 50%,
+                rgba(0, 0, 0, 0.7) 90%), url('../../../assets/images/layout-image-sneaker.webp');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -75,17 +75,53 @@
 }
 
 @keyframes entrance {
-    from {filter: blur(20px); transform: scale(1.4);}
+    from {
+        filter: blur(20px);
+        transform: scale(1.4);
+    }
 }
 
 
 @media (min-width: 600px) {
 
     .inicio-container {
+        height: calc(100vh - 112px);
+
+        display: grid;
+        grid-template:
+            "picture   video    video"       65%
+            "picture   button   otro-bloque" 5%
+            "about     about    otro-bloque" auto/
+            30%        20%      auto;
+        gap: 4px;
+
+        // border: 1px solid black;
 
         picture {
+            grid-area: picture;
             height: auto;
-            width: 300px;
+        }
+
+        .button {
+            grid-area: button;
+        }
+
+        .video {
+            height: 100%;
+            grid-area: video;
+            object-fit: cover;
+            // border: 1px solid red;
+        }
+
+        .about {
+            border: 1px solid black;
+            grid-area: about;
+            background-color: var(--Verydarkblue);
+        }
+
+        .otro-bloque {
+            grid-area: otro-bloque;
+            background-color: var(--Darkgrayishblue);
         }
     }
 }
