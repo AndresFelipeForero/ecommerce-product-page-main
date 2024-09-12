@@ -71,6 +71,7 @@
         color: var(--White);
         width: 100%;
         box-shadow: 0px 5px 48px -16px hsl(25, 100%, 70%);
+        transition: box-shadow .3s ease;
     }
 }
 
@@ -81,47 +82,142 @@
     }
 }
 
+.customers-reviews,
+.about,
+.video,
+.logo-image {
+    display: none;
+}
+
 
 @media (min-width: 600px) {
 
     .inicio-container {
-        height: calc(100vh - 112px);
+        height: calc(100vh - 172px);
 
         display: grid;
         grid-template:
-            "picture   video    video"       65%
-            "picture   button   otro-bloque" 5%
-            "about     about    otro-bloque" auto/
-            30%        20%      auto;
+            "picture   video    video"   65%
+            "picture   logo     reviews" 10%
+            "about     about    reviews" auto/
+            30%        10%      auto;
         gap: 4px;
 
-        // border: 1px solid black;
 
         picture {
             grid-area: picture;
             height: auto;
         }
 
-        .button {
-            grid-area: button;
+        .start__btn:hover {
+            box-shadow: 0px 5px 48px -16px hsl(25, 100%, 70%), 0px 3px 24px -8px hsl(25, 100%, 70%);
+        }
+
+        .logo-image {
+            display: block;
+            grid-area: logo;
+
+
+            img {
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+                -o-object-fit: contain;
+                animation: rotate infinite ease-in-out 12s;
+            }
+
+            @keyframes rotate {
+                0% {
+                    transform: rotateY(0deg);
+                }
+
+                90% {
+                    transform: rotateY(0deg);
+                }
+
+                100% {
+                    transform: rotateY(360deg);
+                }
+            }
         }
 
         .video {
+            display: block;
             height: 100%;
             grid-area: video;
             object-fit: cover;
-            // border: 1px solid red;
         }
 
         .about {
-            border: 1px solid black;
+            display: block;
+            position: relative;
             grid-area: about;
-            background-color: var(--Verydarkblue);
+            background-image: linear-gradient(to left,
+                    rgba(0, 0, 0, 0) 10%,
+                    rgba(0, 0, 0, 0.2) 50%,
+                    rgba(0, 0, 0, 0.5) 90%), url('../../../assets/images/InitPage/work-group.webp');
+            background-size: 100%;
+            background-position: 0% 10%;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: all .3s ease;
+
+            span {
+                font-family: cursive;
+                font-size: 24px;
+                color: var(--Paleorange);
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: var(--Verydarkblue);
+                opacity: .4;
+            }
+
+            &:hover {
+                // background-position: top;
+                background-size: 105%;
+            }
+
+            &:hover span {
+                z-index: 2;
+            }
+
+            &:hover::before {
+                opacity: .6;
+            }
         }
 
-        .otro-bloque {
-            grid-area: otro-bloque;
-            background-color: var(--Darkgrayishblue);
+        .customers-reviews {
+            display: block;
+            grid-area: reviews;
+            background-image: url('../../../assets/images/InitPage/papel-arrugado-lite.webp');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+
+            span {
+                // border: 1px solid black;
+                font-family: 'Dancing Script', cursive;
+                color: var(--Verydarkblue);
+                font-size: 45px;
+                font-weight: 600;
+                transform: rotateZ(-3deg);
+                transition: all .3s ease;
+            }
+
+            &:hover span {
+                transform: rotateZ(0deg);
+                transform: scale(1.1);
+                opacity: .9;
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 //Just It is the reset
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap');
 
 :root {
@@ -23,6 +24,8 @@ body {
   height: 100%;
   font-family: "Kumbh Sans", sans-serif;
   font-size: 16px;
+  // background-image: url('./assets/images/InitPage/papel-arrugado-lite.webp');
+
 }
 
 /* Reseteamos los margin y paddings de todas las etiquetas */
