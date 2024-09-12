@@ -32,7 +32,7 @@
         justify-content: end;
         gap: 24px;
         align-items: center;
-        animation: entrance .6s ease;
+        animation: entrance .3s ease;
 
         .slogan {
 
@@ -78,7 +78,7 @@
 @keyframes entrance {
     from {
         filter: blur(20px);
-        transform: scale(1.4);
+        transform: scale(1.3);
     }
 }
 
