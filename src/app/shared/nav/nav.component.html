@@ -14,9 +14,9 @@
     </li>
     <li routerLinkActive="active" class="nav__li" (click)="closeNav()"><a class="nav__a">Women</a>
     </li> -->
-    <li routerLinkActive="active" class="nav__li" (click)="closeNav()"><a class="nav__a">Quiénes somos</a>
+    <li routerLinkActive="active" [routerLink]="'/about-us'" class="nav__li" (click)="closeNav()"><a class="nav__a">Quiénes somos</a>
     </li>
-    <li routerLinkActive="active" class="nav__li" (click)="closeNav()"><a class="nav__a">Contacto</a>
+    <li routerLinkActive="active" [routerLink]="'/contact'" class="nav__li" (click)="closeNav()"><a class="nav__a">Contacto</a>
     </li>
   </ul>
 

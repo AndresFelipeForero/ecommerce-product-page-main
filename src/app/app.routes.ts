@@ -2,7 +2,8 @@ import { Routes } from '@angular/router';
 import { InicioPageComponent } from './components/inicio-page/inicio-page.component';
 
 export const routes: Routes = [
-  { path: '', component: InicioPageComponent },
+  { path: '', redirectTo: 'inicio', pathMatch:'full'},
+  { path: 'inicio', component: InicioPageComponent },
   {
     path: 'main',
     loadComponent: () =>
@@ -15,6 +16,20 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./components/product-page/product-page.component').then(
         (c) => c.ProductPageComponent
+      ),
+  },
+  {
+    path: 'about-us',
+    loadComponent: () =>
+      import('./components/about-us-page/about-us-page.component').then(
+        (c) => c.AboutUsPageComponent
+      ),
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./components/contact-page/contact-page.component').then(
+        (c) => c.ContactPageComponent
       ),
   },
 ];
