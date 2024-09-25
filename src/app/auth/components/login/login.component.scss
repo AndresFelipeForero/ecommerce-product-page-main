@@ -1,20 +1,9 @@
-.variables {
-    --Orange: hsl(26, 100%, 55%);
-    --Paleorange: hsl(25, 100%, 94%);
-
-    // ### Neutral
-
-    --Verydarkblue: hsl(220, 13%, 13%);
-    --Darkgrayishblue: hsl(219, 9%, 45%);
-    --Grayishblue: hsl(220, 14%, 75%);
-    --Lightgrayishblue: hsl(223, 64%, 98%);
-    --White: hsl(0, 0%, 100%);
-    // (with 75% opacity for lightbox background)
-    --Black: hsla(0, 0%, 0%);
-}
-
-.desk-title {
-    display: none;
+h2 {
+    padding: 48px;
+    text-align: center;
+    font-size: 20px;
+    color: var(--Verydarkblue);
+    filter: drop-shadow(-2px 1px 3px  var(--Grayishblue));
 }
 
 .form {
@@ -24,13 +13,6 @@
     align-items: center;
     padding: 24px;
     gap: 32px;
-
-    h2 {
-        // font-family: cursive;
-        font-size: 20px;
-        color: var(--Verydarkblue);
-        filter: drop-shadow(-2px 1px 3px  var(--Grayishblue));
-    }
 
     .form-field {
         width: 100%;
@@ -80,25 +62,6 @@
             }
         }
 
-        // .textarea-label{
-        //     color: var(--Darkgrayishblue);
-        //     padding: 0 15px;
-        // }
-
-        textarea {
-            height: 60px;
-            resize: none;
-            width: 100%;
-            border: 2px solid var(--Darkgrayishblue);
-            border-radius: 8px;
-            field-sizing: content;
-            color: var(--Darkgrayishblue);
-            font-size: 1rem;
-            outline-color: var(--Orange);
-            padding: 12px;
-
-        }
-
         small {
             color: red;
             padding: 0 15px;
@@ -128,31 +91,16 @@
 }
 
 @media (min-width: 500px) {
-    .desk-title {
-        display: block;
-        width: 100%;
-        text-align: center;
-        color: var(--Verydarkblue);
-        filter: drop-shadow(-2px 1px 3px  var(--Grayishblue));
-        padding: 48px;
-    }
+
     .form {
         padding: 0 24px;
-        flex-direction: row;
-        flex-wrap: wrap;
+        // flex-direction: row;
+        // flex-wrap: wrap;
         justify-content: center;
-
-        h2 {
-            display: none;
-        }
 
         .form-field{
             width: auto;
             min-width: 400px;
-
-            textarea {
-                margin-top: 3px;
-            }
         }
 
         button {

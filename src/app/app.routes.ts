@@ -32,4 +32,18 @@ export const routes: Routes = [
         (c) => c.ContactPageComponent
       ),
   },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./auth/components/login/login.component').then(
+        (c) => c.LoginComponent
+      ),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./auth/components/register/register.component').then(
+        (c) => c.RegisterComponent
+      ),
+  },
 ];

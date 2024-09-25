@@ -2,14 +2,12 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { FilterDataService } from './filter-data.service';
 import { Observable, switchMap } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IproductService {
   httpClient = inject(HttpClient);
-  activateRout = inject(ActivatedRoute);
   // baseURL: string = 'https://generous-vibrancy-production.up.railway.app/api/i-products';
   _filterStore = inject(FilterDataService);
   baseURL: string = 'http://localhost:1337/api/i-products';

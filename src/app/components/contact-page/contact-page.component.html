@@ -1,7 +1,8 @@
+<h2 class="desk-title">ENVÍANOS UN MENSAJE</h2>
 <form class="form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
   <!-- tilte -->
-  <h1>Contactanos</h1>
+  <h2>ENVÍANOS UN MENSAJE</h2>
 
   <!-- Nombre -->
   <div class="form-field">
@@ -24,6 +25,7 @@
     <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="error" @enterAnimation>
       <small *ngIf="contactForm.get('email')?.errors?.['required']">El email es requerido.</small>
       <small *ngIf="contactForm.get('email')?.errors?.['email']">El email no es válido.</small>
+      <small *ngIf="contactForm.get('email')?.errors?.['pattern']">El email no es válido.</small>
     </div>
   </div>
 
@@ -53,8 +55,8 @@
 
   <!-- Mensaje -->
   <div class="form-field">
-    <label class="textarea-label" for="message">Mensaje:</label>
-    <textarea id="message" formControlName="message"></textarea>
+    <!-- <label class="textarea-label" for="message">Mensaje:</label> -->
+    <textarea id="message" formControlName="message" placeholder="Escribe tu mensaje aquí..."></textarea>
     <div *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid" class="error" @enterAnimation>
       <small *ngIf="contactForm.get('message')?.errors?.['required']">El mensaje es requerido.</small>
       <small *ngIf="contactForm.get('message')?.errors?.['minlength']">El mensaje debe tener al menos 10

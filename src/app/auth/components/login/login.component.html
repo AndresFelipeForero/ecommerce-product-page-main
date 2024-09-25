@@ -1,0 +1,33 @@
+<!-- tilte -->
+<h2>LOGIN</h2>
+
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <!-- Identyfier -->
+    <div class="form-field">
+      <div class="field">
+        <input placeholder="" id="identifier" type="text" formControlName="identifier" />
+        <label for="identifier">Usuario ó Correo:</label>
+      </div>
+      <div *ngIf="form.get('identifier')?.touched && form.get('identifier')?.invalid" class="error" @enterAnimation>
+        <small *ngIf="form.get('identifier')?.errors?.['required']" >El usuario es requerido.</small>
+        <small *ngIf="form.get('identifier')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</small>
+      </div>
+    </div>
+  
+  
+  
+    <!-- Password -->
+    <div class="form-field">
+      <div class="field">
+        <input placeholder="" id="password" type="text" formControlName="password" />
+        <label for="password">Password:</label>
+      </div>
+      <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="error" @enterAnimation>
+        <small *ngIf="form.get('password')?.errors?.['pattern']">El teléfono debe ser un número válido.</small>
+      </div>
+    </div>
+  
+    <!-- submit button -->
+    <button type="submit" [disabled]="form.invalid">LogIn</button>
+  </form>
