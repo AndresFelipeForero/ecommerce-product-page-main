@@ -42,7 +42,7 @@ export class RegisterComponent {
       return
     }
     console.log(userData)
-    const userRegistred = await this._authServices.register(userData)
+    const userRegistred = await this._authServices.register(userData).catch(error => console.log(error))
     console.log( userRegistred)
   }
   

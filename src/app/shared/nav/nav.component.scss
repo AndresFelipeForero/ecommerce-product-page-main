@@ -72,6 +72,8 @@
         margin-bottom: 5px;
         overflow: hidden;
         border-radius: 50%;
+        border: 2px solid var(--Grayishblue);
+
     }
 }
 
@@ -230,9 +232,11 @@
         .profile {
             height: 54px;
             width: 54px;
+            transition: border .3s ease;
+            object-fit: cover;
 
             &:hover {
-                border: 3px solid var(--Orange);
+                border: 2px solid var(--Orange);
                 border-radius: 50%;
                 cursor: pointer;
             }
