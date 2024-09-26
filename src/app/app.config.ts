@@ -2,6 +2,7 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter, withViewTransitions } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient } from '@angular/common/http';
+import { provideToastr } from 'ngx-toastr';
 
 
 
@@ -13,6 +14,7 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions()
     ),
     provideHttpClient(),
-    provideAnimations()
+    provideAnimations(),
+    provideToastr()
   ]
 };

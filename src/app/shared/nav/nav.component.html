@@ -2,7 +2,7 @@
 
   <button class="nav__toggle" (click)="toggleNav()" [ngClass]="{'nav__toggle--active': isNavActive}"></button>
 
-  <div class="logo"></div>
+  <div class="logo">Alpha Follow</div>
 
   <ul class="nav__ul" [ngClass]="{'nav__ul--active': isNavActive}">
 
@@ -25,8 +25,19 @@
   </div>
 
   <img class="profile" src="../../../assets/images/user_icon.svg" alt="profile">
+
+  <div class="auth-container">
+    <div class="auth-option first-option"> </div>
+    <div class="auth-option" [routerLink]="'/login'">Log In</div>
+    <div class="auth-option" [routerLink]="'/register'">Sign In</div>
+    <div class="auth-option">Perfil</div>
+    <div class="auth-option">Log Out</div>
+  </div>
+
 </nav>
 <app-cart class="cart" [ngClass]="{'cart__active': isCartActive}"></app-cart>
+
+
 
 
 <div class="modal" (click)="closeNav()" [ngClass]="{'modal__active': isNavActive}"></div>

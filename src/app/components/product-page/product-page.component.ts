@@ -7,7 +7,7 @@ import { NgClass } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { IproductService } from '../../services/iproduct.service';
 import { DecimalPipe } from '@angular/common';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-page',
@@ -20,27 +20,30 @@ export class ProductPageComponent {
   _iproductService = inject(IproductService);
   _storeService = inject(CartStoreService);
   activateRout = inject(ActivatedRoute);
+  private toastr = inject(ToastrService);
 
   productById!: IProduct;
   productAmount = 1;
   currentImageIndex = 0;
   isModalActive = false;
-  subscribe?:Subscription;
-  
+  subscribe?: Subscription;
+
   ngOnInit() {
-     this.activateRout.params.subscribe((params) => {
+    this.activateRout.params.subscribe((params) => {
       let ID: number = params['productID'];
       this.subscribe = this._iproductService
         .getById(ID)
         .subscribe(({ data: { id, attributes } }) => {
-          let mainImages = attributes.image.data.map((image: any):string => {
+          let mainImages = attributes.image.data.map((image: any): string => {
             return image.attributes.formats.medium.url;
           });
-          let thumbnails = attributes.image.data.map((thumbnail: any):string => {
-            return thumbnail.attributes.formats.thumbnail.url;
-          });
+          let thumbnails = attributes.image.data.map(
+            (thumbnail: any): string => {
+              return thumbnail.attributes.formats.thumbnail.url;
+            }
+          );
 
-         this.productById = {
+          this.productById = {
             id,
             company: attributes.company,
             name: attributes.name,
@@ -49,7 +52,7 @@ export class ProductPageComponent {
             discount: attributes.discount,
             image: mainImages,
             thumbnail: thumbnails,
-            finalPrice: attributes.finalPrice
+            finalPrice: attributes.finalPrice,
           };
         });
     });
@@ -66,10 +69,20 @@ export class ProductPageComponent {
   }
 
   addToCart() {
-      this._storeService.addProduct({
-        ...this.productById,
-        quantity: this.productAmount,
-      });
+    this._storeService.addProduct({
+      ...this.productById,
+      quantity: this.productAmount,
+    });
+    this.toastr.success(
+      `${this.productById.name} x ${this.productAmount}`,
+      'Añadido!',
+      {
+        positionClass: 'toast-top-center',
+        progressBar: true,
+        timeOut: 2000,
+        toastClass: 'ngx-toastr custom-toast',
+      }
+    );
   }
 
   imgSelected($index: number) {
@@ -92,6 +105,6 @@ export class ProductPageComponent {
   }
 
   ngOnDestroy() {
-    this.subscribe?.unsubscribe()
+    this.subscribe?.unsubscribe();
   }
 }
