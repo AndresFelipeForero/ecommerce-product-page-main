@@ -1,18 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { CartStoreService } from '../../services/cart-store.service';
 import { IProductCart } from '../../interfaces/product';
-import { AsyncPipe } from '@angular/common';
+import { DecimalPipe } from '@angular/common';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [DecimalPipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
 export class CartComponent {
   cartFill = false;
+  total = 0
+
   _storeService = inject(CartStoreService);
   products!: IProductCart[];
   private subscription!: Subscription;
@@ -23,9 +25,14 @@ export class CartComponent {
       .subscribe((products) => {
         if (!products.length) {
           this.cartFill = false;
+          
+          
         } else {
           this.cartFill = true;
           this.products = products;
+          this.total = products.reduce((acc, curr) => 
+            acc + curr.quantity * curr.finalPrice
+          , 0)
         }
       });
   }

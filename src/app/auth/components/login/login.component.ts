@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { fadeInOut } from '../../../animations/fadeInOut';
 import { ToastrService } from 'ngx-toastr';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -33,9 +32,17 @@ export class LoginComponent {
   async onSubmit(){
     try {
       const response = await this._authService.logIn(this.form.value)
-      console.log(response)
-      // localStorage.setItem('token-auth', response.data)
-      // this.router.navigate(['/inicio'])
+      console.log((response))
+      let {jwt, user} = response as any
+      localStorage.setItem('token-auth', jwt)
+      this.router.navigate(['/init'])
+      this.toastr.success( 'Logueado con exito!', `${user.username}`, {
+        positionClass: 'toast-top-center',
+        progressBar: true,
+        timeOut: 2000,
+        toastClass: 'ngx-toastr custom-toast'
+      })
+
     } catch (error) {
       console.log((error as any).error)
       let {message} = (error as any).error.error

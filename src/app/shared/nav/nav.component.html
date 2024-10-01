@@ -6,7 +6,7 @@
 
   <ul class="nav__ul" [ngClass]="{'nav__ul--active': isNavActive}">
 
-    <li routerLinkActive="active" [routerLink]="'/inicio'" [routerLinkActiveOptions]="{ exact: true }" class="nav__li" (click)="closeNav()"><a class="nav__a">Inicio</a>
+    <li routerLinkActive="active" [routerLink]="'/init'" [routerLinkActiveOptions]="{ exact: true }" class="nav__li" (click)="closeNav()"><a class="nav__a">Inicio</a>
     </li>
     <li routerLinkActive="active" [routerLink]="'/main'" class="nav__li" (click)="closeNav()"><a class="nav__a">Colección</a>
     </li>
@@ -24,20 +24,22 @@
     <span class="cart__quantity"> {{cartSpan}} </span>
   </div>
 
-  <img class="profile" src="../../../assets/images/user_icon.svg" alt="profile">
+  @if (_auth.isLogged()) {
+    <img class="profile" src="../../../assets/images/user_icon_blue.svg" alt="profile" style="border: 2px solid var(--Orange);">
+  } @else {
+    <img class="profile" src="../../../assets/images/user_icon.svg" alt="profile">
+  }
 
   <div class="auth-container">
     <div class="auth-option first-option"> </div>
-    <div class="auth-option" [routerLink]="'/login'">Log In</div>
-    <div class="auth-option" [routerLink]="'/register'">Sign In</div>
-    <div class="auth-option">Perfil</div>
-    <div class="auth-option">Log Out</div>
+    <div *ngIf="!_auth.isLogged()" class="auth-option" [routerLink]="'/auth/login'">Log In</div>
+    <div *ngIf="!_auth.isLogged()" class="auth-option" [routerLink]="'/auth/register'">Sign In</div>
+    <div *ngIf="_auth.isLogged()" class="auth-option">Perfil</div>
+    <div *ngIf="_auth.isLogged()" class="auth-option" (click)="logout()">Logout</div>
   </div>
 
 </nav>
+
 <app-cart class="cart" [ngClass]="{'cart__active': isCartActive}"></app-cart>
-
-
-
 
 <div class="modal" (click)="closeNav()" [ngClass]="{'modal__active': isNavActive}"></div>

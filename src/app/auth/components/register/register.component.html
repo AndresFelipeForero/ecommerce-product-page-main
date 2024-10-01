@@ -7,7 +7,7 @@
     <div class="form-field">
       <div class="field">
         <input placeholder="" id="identifier" type="text" formControlName="username" />
-        <label for="identifier">Usuario ó Correo:</label>
+        <label for="identifier">Usuario:</label>
       </div>
       <div *ngIf="form.get('identifier')?.touched && form.get('identifier')?.invalid" class="error" @enterAnimation>
         <small *ngIf="form.get('identifier')?.errors?.['required']" >El usuario es requerido.</small>
@@ -37,7 +37,7 @@
         <label for="password">Password:</label>
       </div>
       <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="error" @enterAnimation>
-        <small *ngIf="form.get('password')?.errors?.['pattern']">El teléfono debe ser un número válido.</small>
+        <small *ngIf="form.get('password')?.errors?.['pattern']">La contraseña debe bla bla bla</small>
       </div>
     </div>
 
@@ -48,7 +48,7 @@
       </div>
       <small *ngIf="!isPaswordMatching">Las contraseñas no coinciden.</small>
       <div *ngIf="form.get('passwordConfirm')?.touched && form.get('passwordConfirm')?.invalid" class="error" @enterAnimation>
-        <small *ngIf="form.get('passwordConfirm')?.errors?.['pattern']">La contraseña no es aceptada, se debe cambiar.</small>
+        <small *ngIf="form.get('passwordConfirm')?.errors?.['pattern']">La contraseña debe bla bla bla</small>
       </div>
     </div>
   

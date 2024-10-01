@@ -2,8 +2,8 @@ import { Routes } from '@angular/router';
 import { InicioPageComponent } from './components/inicio-page/inicio-page.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'inicio', pathMatch:'full'},
-  { path: 'inicio', component: InicioPageComponent },
+  { path: '', redirectTo: 'init', pathMatch:'full'},
+  { path: 'init', component: InicioPageComponent },
   {
     path: 'main',
     loadComponent: () =>
@@ -33,17 +33,8 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'login',
-    loadComponent: () =>
-      import('./auth/components/login/login.component').then(
-        (c) => c.LoginComponent
-      ),
-  },
-  {
-    path: 'register',
-    loadComponent: () =>
-      import('./auth/components/register/register.component').then(
-        (c) => c.RegisterComponent
-      ),
-  },
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.routes').then(r => r.routes),
+  }
 ];
+

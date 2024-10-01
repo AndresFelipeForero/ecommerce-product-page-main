@@ -20,14 +20,20 @@
         <div class="info__datos">
             <h3>{{product.name}}</h3>
             <div class="prices">
-                <span class="price">${{(product.price - product.price * product.discount / 100)}}</span>
-                <span class="amount">x {{product.quantity}}</span>
-                <span class="total">${{(product.quantity * (product.price - product.price * product.discount / 100))}}</span>
+                <span class="price">${{(product.price - product.price * product.discount / 100) | number:'1.0-0'}}</span>
+                <span class="amount">x{{product.quantity}}</span>
+                <span class="final-price">${{(product.quantity * (product.price - product.price * product.discount / 100)) | number:'1.0-0'}}</span>
             </div>
         </div>
         <button class="delete" (click)="onClickDelete(product.id)"></button>
     </div>
 }
+@if (cartFill) {
+    <div class="total">
+        <span><small>Total</small> ${{total | number:'1.0-0'}}</span>
+    </div>
+}
+
 <button class="checkout__btn">Checkout</button>
 }
 </div>

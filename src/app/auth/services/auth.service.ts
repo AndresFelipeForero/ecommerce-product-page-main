@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { BehaviorSubject, firstValueFrom } from 'rxjs';
 import { Register } from '../interfaces/register';
 import { Login } from '../interfaces/login';
 
@@ -13,8 +13,6 @@ export class AuthService {
   loginRoad:string = 'auth/local';
   registerRoad:string = 'auth/local/register';
 
-
-
   register(data: Register){
     return firstValueFrom(
       this.http.post(this.baseURL+this.registerRoad, data)
@@ -25,5 +23,9 @@ export class AuthService {
     return firstValueFrom(
       this.http.post(this.baseURL+this.loginRoad, data)
     )
+  }
+
+  isLogged() {
+    return !!localStorage.getItem('token-auth')
   }
 }
