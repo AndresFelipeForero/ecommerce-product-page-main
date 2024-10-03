@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { FilterDataService } from './filter-data.service';
 import { Observable, switchMap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,17 +11,18 @@ export class IproductService {
   httpClient = inject(HttpClient);
   // baseURL: string = 'https://generous-vibrancy-production.up.railway.app/api/i-products';
   _filterStore = inject(FilterDataService);
-  baseURL: string = 'http://localhost:1337/api/i-products';
+  baseURL: string = environment.baseUrl;
+  table: string = 'i-products'
 
   populate: string = '?populate=*';
 
   getAll() {
-    return this.httpClient.get<any>(`${this.baseURL}`);
+    return this.httpClient.get<any>(`${this.baseURL}/${this.table}`);
   }
 
   getById(productId: number) {
     return this.httpClient.get<any>(
-      `${this.baseURL}/${productId}${this.populate}`
+      `${this.baseURL}/${this.table}/${productId}${this.populate}`
     );
   }
 
@@ -55,7 +57,7 @@ export class IproductService {
           params = params.set('filters[name][$containsi]', searchQuery);
         }
 
-        return this.httpClient.get<any>(`${this.baseURL}`, { params });
+        return this.httpClient.get<any>(`${this.baseURL}/${this.table}`, { params });
       })
     );
   }

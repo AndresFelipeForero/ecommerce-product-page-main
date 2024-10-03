@@ -24,7 +24,7 @@ export class MainPageComponent {
   router = inject(Router)
   subscribe?: Subscription;
   searchControl = new FormControl('');
-  showProducts?: IProduct[];
+  showProducts: IProduct[] = [];
   brandSelected: string = '';
   filterActive: boolean = false;
 

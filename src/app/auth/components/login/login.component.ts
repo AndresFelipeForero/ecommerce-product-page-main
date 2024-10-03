@@ -32,7 +32,6 @@ export class LoginComponent {
   async onSubmit(){
     try {
       const response = await this._authService.logIn(this.form.value)
-      console.log((response))
       let {jwt, user} = response as any
       localStorage.setItem('token-auth', jwt)
       this.router.navigate(['/init'])
@@ -42,11 +41,9 @@ export class LoginComponent {
         timeOut: 2000,
         toastClass: 'ngx-toastr custom-toast'
       })
-
     } catch (error) {
-      console.log((error as any).error)
       let {message} = (error as any).error.error
-      this.toastr.error(`${message}`, 'Error', {
+      this.toastr.warning(`${message}`, 'Error', {
         positionClass: 'toast-top-center',
         progressBar: true,
         timeOut: 2000,

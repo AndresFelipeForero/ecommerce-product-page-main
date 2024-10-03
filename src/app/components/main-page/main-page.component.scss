@@ -38,11 +38,12 @@ input[type="text"] {
   width: 100%;
   color: var(--Darkgrayishblue);
   background-color: var(--White);
+  margin-right: 2px;
 }
 
 input[type="text"]::placeholder {
   font-size: 14px;
-  color: var(--DarkGrayLightModeInput);
+  color: var(--Grayishblue);
 }
 
 .search-container:has(input[type="text"]:focus) {
@@ -51,6 +52,7 @@ input[type="text"]::placeholder {
 
 .search-icon {
   width: 20px;
+  min-width: 20px;
   height: 20px;
   background-image: url('../../../assets/images/icons8-búsqueda.svg');
   background-size: cover;
@@ -141,9 +143,7 @@ input[type="text"]::placeholder {
       object-position: center;
     }
   }
-
 }
-
 
 /* ----------------filter form-------------- */
 
@@ -157,8 +157,19 @@ input[type="text"]::placeholder {
   }
 }
 
-/* ----------------cards-------------- */
+/* ------------no-coincidences----------- */
 
+.no-coincidences {
+  color: var(--Grayishblue);
+  text-align: center;
+  // border: 1px solid black;
+  width: 100%;
+  display: block;
+  padding: 24px;
+  font-size: 20px;
+}
+
+/* ----------------cards-------------- */
 
 .card-container {
   display: grid;
@@ -166,6 +177,8 @@ input[type="text"]::placeholder {
   gap: 32px;
   justify-items: center;
   padding: 0 24px;
+
+  
 }
 
 

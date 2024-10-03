@@ -3,11 +3,12 @@ import { CartStoreService } from '../../services/cart-store.service';
 import { IProductCart } from '../../interfaces/product';
 import { DecimalPipe } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [DecimalPipe],
+  imports: [DecimalPipe, RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })

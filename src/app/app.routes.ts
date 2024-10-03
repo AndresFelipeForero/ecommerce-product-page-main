@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { InicioPageComponent } from './components/inicio-page/inicio-page.component';
+import { authGuard } from './auth/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'init', pathMatch:'full'},
@@ -35,6 +36,26 @@ export const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.routes').then(r => r.routes),
-  }
+  },
+  {
+    path: 'profile',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./components/profile-page/profile-page.component').then(
+        (c) => c.ProfilePageComponent,
+      )
+  },
+  {
+    path: 'check-out',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./components/check-out-page/check-out-page.component').then(
+        (c) => c.CheckOutPageComponent,
+      )
+  },
+  {
+    path: '**',
+    redirectTo: 'init'
+  },
 ];
 

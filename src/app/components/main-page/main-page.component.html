@@ -34,10 +34,12 @@
             </button>
     </div>
 
-
     <app-product-filter-form class="filter-form-container" [class.active]="filterActive"></app-product-filter-form>
 
-
+    @if (!showProducts!.length) {
+        <span class="no-coincidences">No se encontraron coincidencias</span>
+    }
+    
     <div class="card-container">
         @for(productFather of showProducts; track productFather.id){
             @defer (on viewport) {
@@ -48,4 +50,5 @@
             }
         }
     </div>
+    
 </div>
