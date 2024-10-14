@@ -177,8 +177,65 @@ input[type="text"]::placeholder {
   gap: 32px;
   justify-items: center;
   padding: 0 24px;
+}
 
-  
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+
+  button {
+    font-size: 18px;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    min-width: 30px;
+    width: 30px;
+    background-color: var(--Lightgrayishblue);
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:disabled {
+      opacity: .7;
+    }
+
+    &:disabled img{
+      opacity: .3;
+    }
+
+    &.active {
+      color: var(--Lightgrayishblue);
+      background-color: var(--Darkgrayishblue);
+    }
+  }
+
+  .pagination__page {
+    color: var(--Darkgrayishblue);
+  }
+  .pagination__previous {
+    
+    padding: 8px;
+    img {
+      width: 30px;
+      aspect-ratio: 1;
+      object-position: center;
+      object-fit: contain;
+      opacity: .8;
+    }
+  }
+
+  .pagination__next {
+    padding: 8px;
+
+    img {
+      width: 30px;
+      aspect-ratio: 1;
+      object-position: center;
+      object-fit: contain;
+      opacity: .8;
+    }
+  }
 }
 
 

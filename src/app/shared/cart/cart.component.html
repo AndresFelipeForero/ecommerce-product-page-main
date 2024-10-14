@@ -2,6 +2,8 @@
     @if (!cartFill) {
     <div class="title__empty">
         <h2>Cart</h2>
+        <div class="close-img" (click)="closeCart()"> 
+        </div>
     </div>
     <hr class="hr">
 
@@ -9,6 +11,8 @@
     }@else{
     <div class="title">
         <h2>Cart</h2>
+        <div class="close-img" (click)="closeCart()"> 
+        </div>
     </div>
 
     <hr class="hr">

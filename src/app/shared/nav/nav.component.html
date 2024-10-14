@@ -10,10 +10,7 @@
     </li>
     <li routerLinkActive="active" [routerLink]="'/main'" class="nav__li" (click)="closeNav()"><a class="nav__a">Colección</a>
     </li>
-    <!-- <li routerLinkActive="active" class="nav__li" (click)="closeNav()"><a class="nav__a">Men</a>
-    </li>
-    <li routerLinkActive="active" class="nav__li" (click)="closeNav()"><a class="nav__a">Women</a>
-    </li> -->
+   
     <li routerLinkActive="active" [routerLink]="'/about-us'" class="nav__li" (click)="closeNav()"><a class="nav__a">Quiénes somos</a>
     </li>
     <li routerLinkActive="active" [routerLink]="'/contact'" class="nav__li" (click)="closeNav()"><a class="nav__a">Contacto</a>
@@ -38,8 +35,9 @@
     <div *ngIf="_auth.isLogged()" class="auth-option" (click)="logout()">Logout</div>
   </div>
 
+  <app-cart class="cart" [ngClass]="{'cart__active': _storeService.state}"></app-cart>
 </nav>
 
-<app-cart class="cart" [ngClass]="{'cart__active': isCartActive}"></app-cart>
+
 
 <div class="modal" (click)="closeNav()" [ngClass]="{'modal__active': isNavActive}"></div>

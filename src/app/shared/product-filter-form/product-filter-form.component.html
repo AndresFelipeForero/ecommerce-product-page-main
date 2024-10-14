@@ -1,6 +1,6 @@
 <div class="form-container">
   <div class="company-filters">
-    <span>Companys</span>
+    <span>Marcas</span>
     @for(comp of showCompanys; track comp.company){
     <div class="companys">
       <input type="checkbox" id="{{comp.company}}" name="{{comp.company}}" value="{{comp.company}}"
@@ -19,17 +19,17 @@
 
 
     <div class="min-price">
-      <label for="minPrice">Min Price</label>
+      <label for="minPrice">Mínimo</label>
       <input min="0" id="minPrice" type="number" formControlName="minPrice">
     </div>
 
     <div class="max-price">
-      <label for="maxPrice">Max Price</label>
+      <label for="maxPrice">Máximo</label>
       <input id="maxPrice" type="number" formControlName="maxPrice">
     </div>
 
     <div class="search">
-      <label for="searchQuery">Search</label>
+      <label for="searchQuery">Buscar</label>
       <input id="searchQuery" formControlName="searchQuery" placeholder="Search products">
     </div>
   </form>

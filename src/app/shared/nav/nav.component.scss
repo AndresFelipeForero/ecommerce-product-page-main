@@ -110,8 +110,6 @@
 }
 
 .nav__ul {
-    // border: 1px solid black;
-
     position: fixed;
     flex-grow: 1;
     display: flex;
@@ -130,8 +128,6 @@
     transition: all .4s;
 
     .nav__li {
-        // border: 1px solid black;
-
         color: var(--Verydarkblue);
         position: relative;
         font-weight: 700;
@@ -213,7 +209,7 @@
     overflow: hidden;
     
     .auth-option {
-        padding: 4px 8px;
+        padding: 8px 18px;
         background-color: var(--Paleorange);
         color: var(--Darkgrayishblue);
         font-weight: 600;
@@ -229,9 +225,7 @@
     .first-option {
         background-color: transparent;
         height: 24px;
-        // border-top:1px solid black ;
         position: relative;
-        // overflow: hidden;
         
         &::before {
             content: "";
@@ -257,11 +251,6 @@
     flex-direction: column;
     gap: 2px;
     animation: fadeInBottom .3s alternate ease-in;
-}
-
-@media screen and (min-width: 760px) {
-
-    
 }
 
 @keyframes hide {
@@ -387,8 +376,8 @@
         position: absolute;
         transform: translateX(0);
         top: 90px;
-        left: 57vw;
-        animation: none;
+        left: auto;
+        right: 12px;
         animation: fadeOutBottom .3s ease-in;
     }
 
@@ -406,7 +395,6 @@
 
     .auth-option {
         font-size: 18px;
-        padding: 6px 12px;
     }
 }
     .modal {
@@ -417,6 +405,10 @@
 @media (min-width: 1124px) {
     .nav {
         padding: 0px;
+    }
+
+    .cart {
+        right: 0px;
     }
 
     .auth-container {

@@ -51,4 +51,22 @@
         }
     </div>
     
+    <div class="pagination">
+        <button class="pagination__previous" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+            <img src="../../../assets/images/icon-previous.svg" alt="previus-img">
+        </button>
+      
+        @for (page of [].constructor(pageCount); track $index) {
+
+            <button class="pagination__page" (click)="goToPage($index + 1)"
+                    [class.active]="$index + 1 === currentPage">
+              {{ $index + 1 }}
+            </button>
+        }
+      
+        <button class="pagination__next" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === pageCount">
+            <img src="../../../assets/images/icon-next.svg" alt="previus-img">
+        </button>
+      </div>
+
 </div>

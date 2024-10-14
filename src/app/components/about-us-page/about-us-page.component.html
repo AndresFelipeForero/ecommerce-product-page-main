@@ -14,6 +14,7 @@
     </div>
 
     <!-- Misión -->
+    @defer (on viewport) {
     <div class="mission-section">
         <img src="../../../assets/images/aboutPage/mission.svg" alt="Imagen de la misión" class="section-image">
         <div class="text-content">
@@ -25,10 +26,16 @@
                 de nuestra comunidad.</p>
         </div>
     </div>
+    }
+    @placeholder {
+    <span>cargando...</span>
+    }
 
     <!-- Historia -->
+    @defer (on viewport) {
     <div class="history-section">
-        <img src="../../../assets/images/aboutPage/my-history_icon.svg" alt="Imagen de la historia" class="section-image">
+        <img src="../../../assets/images/aboutPage/my-history_icon.svg" alt="Imagen de la historia"
+            class="section-image">
         <div class="text-content">
             <h2>Nuestra Historia</h2>
             <p>Nuestra historia comienza en un pequeño pueblo de Urabá, donde, impulsado por el deseo de superar
@@ -39,10 +46,16 @@
                 comunidad.</p>
         </div>
     </div>
+    }
+    @placeholder {
+    <span>cargando...</span>
+    }
 
     <!-- Compromiso -->
+    @defer (on viewport) {
     <div class="commitment-section">
-        <img src="../../../assets/images/aboutPage/commitment_icon.svg" alt="Imagen del compromiso" class="section-image">
+        <img src="../../../assets/images/aboutPage/commitment_icon.svg" alt="Imagen del compromiso"
+            class="section-image">
         <div class="text-content">
             <h2>Nuestro Compromiso</h2>
             <p>Estamos profundamente comprometidos con nuestra comunidad y con el bienestar de nuestros empleados.
@@ -52,8 +65,13 @@
                 fuente de inspiración para todos aquellos que desean construir un futuro mejor.</p>
         </div>
     </div>
+    }
+    @placeholder {
+    <span>cargando...</span>
+    }
 
     <!-- Valores -->
+    @defer (on viewport) {
     <div class="values-section">
         <img src="../../../assets/images/aboutPage/values_icon.svg" alt="Imagen de los valores" class="section-image">
         <div class="text-content">
@@ -70,4 +88,9 @@
             </ul>
         </div>
     </div>
+    }
+    @placeholder {
+    <span>cargando...</span>
+    }
+
 </section>

@@ -39,9 +39,6 @@ export class IproductService {
           .set('pagination[pageSize]', pageSize.toString())
           .set('populate', 'image');
 
-        if (company === undefined) {
-        }
-
         if (company) {
           if (Array.isArray(company)) {
             company.forEach(

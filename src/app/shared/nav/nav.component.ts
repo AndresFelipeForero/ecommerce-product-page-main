@@ -18,7 +18,6 @@ import { AuthService } from '../../auth/services/auth.service';
 export class NavComponent {
   _auth = inject(AuthService)
   isNavActive: boolean = false;
-  isCartActive = false;
   cartSpan = 0;
   _storeService = inject(CartStoreService);
   router = inject(Router)
@@ -41,7 +40,7 @@ export class NavComponent {
   }
 
   cartToggle() {
-    this.isCartActive = !this.isCartActive;
+    this._storeService.state = !this._storeService.state
   }
 
   cartSpanCalc(products: IProductCart[]) {

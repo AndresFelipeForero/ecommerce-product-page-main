@@ -8,6 +8,7 @@ import { IProductCart } from '../interfaces/product';
 export class CartStoreService {
 
   private cart$ = new BehaviorSubject<IProductCart[]>([]);
+  state = false;
 
   constructor() {
     let cartStorage = localStorage.getItem('cartStorePageMain')

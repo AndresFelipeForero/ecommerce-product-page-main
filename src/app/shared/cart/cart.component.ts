@@ -42,6 +42,10 @@ export class CartComponent {
     this._storeService.deleteOne(id);
   }
 
+  closeCart(){
+    this._storeService.state = false
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

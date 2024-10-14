@@ -1,20 +1,20 @@
 import { ProductFilterFormComponent } from './../../shared/product-filter-form/product-filter-form.component';
-import { Subscription, debounceTime } from 'rxjs';
+import { Observable, Subscription, debounceTime, map } from 'rxjs';
 import { Component, inject } from '@angular/core';
 import { ProductCardComponent } from '../../shared/product-card/product-card.component';
 import { IProduct } from '../../interfaces/product';
 import { IproductService } from '../../services/iproduct.service';
 
 import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { NgClass, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, NgClass, TitleCasePipe } from '@angular/common';
 import { FilterDataService } from '../../services/filter-data.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [ProductCardComponent, FormsModule, TitleCasePipe, ProductFilterFormComponent, NgClass, ReactiveFormsModule],
+  imports: [ProductCardComponent, FormsModule, TitleCasePipe, ProductFilterFormComponent, NgClass, ReactiveFormsModule, AsyncPipe],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
@@ -22,14 +22,24 @@ export class MainPageComponent {
   _iproductService = inject(IproductService);
   _filterStore = inject(FilterDataService)
   router = inject(Router)
+  activateRoute = inject(ActivatedRoute);
   subscribe?: Subscription;
+  subscribePagination?: Subscription;
   searchControl = new FormControl('');
   showProducts: IProduct[] = [];
   brandSelected: string = '';
   filterActive: boolean = false;
+  pageCount: number = 1;
+  currentPage!: number;
 
   ngOnInit() {
     this.subscribe = this._iproductService.getFilters().subscribe((products) => {
+
+      this.pageCount = products.meta.pagination.pageCount
+      if (this.pageCount < this.currentPage) {
+        this._filterStore.addFilters({page: 1})
+      }
+
       this.showProducts = products.data.map(({ id, attributes }: any) => {
 
         let mainImage: string = attributes.image.data[0].attributes.formats.medium.url;
@@ -43,7 +53,8 @@ export class MainPageComponent {
     }
   );
 
-  this.searchFilter()
+    this.chargePaginationState()
+    this.searchFilter()
   }
 
   searchFilter() {
@@ -62,7 +73,7 @@ export class MainPageComponent {
   }
 
   chargeBrandStore(){
-    let brandToSend: any[] = [];
+    let brandToSend: string[] = [];
     if (this.brandSelected !== "") {
       brandToSend = [this.brandSelected]
     }
@@ -80,7 +91,21 @@ export class MainPageComponent {
     });
   }
 
+  goToPage(page: number) {
+    this.currentPage = page
+    this._filterStore.addFilters({page})
+  }
+
+  chargePaginationState() {
+    this.subscribePagination = this.activateRoute.queryParams.subscribe(params => {
+      if (params['page']) {
+       this.currentPage = Number(params['page'])
+      }
+    })
+  }
+
   ngOnDestroy() {
     this.subscribe?.unsubscribe();
+    this.subscribePagination?.unsubscribe();
   }
 }

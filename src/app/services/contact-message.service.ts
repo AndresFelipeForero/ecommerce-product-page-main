@@ -14,6 +14,6 @@ export class ContactMessageService {
   table: string = 'contact-messages'
 
   createContactMessage(message: ContactForm){
-    return firstValueFrom(this.http.post(this.baseURL + this.table, {data: message}))
+    return firstValueFrom(this.http.post(`${this.baseURL}/${this.table}`, {data: message}))
   }
 }

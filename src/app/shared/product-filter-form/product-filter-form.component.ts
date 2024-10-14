@@ -51,11 +51,11 @@ export class ProductFilterFormComponent {
         this.activateRout.queryParams.subscribe((params) => {
           if (params) {
 
-            let companyArray: any[] = [];
+            let companyArray: string[] = [];
             if (params['company']) {
 
               if (!Array.isArray(params['company'])) {
-                companyArray = [...[params['company']]];
+                companyArray = [params['company']];
                 } else if (params['company'] === undefined){
                   params['company'] = []
                 }
@@ -78,6 +78,7 @@ export class ProductFilterFormComponent {
       minPrice: [0, [Validators.required, Validators.min(0)]],
       maxPrice: [2000000, [Validators.required, Validators.max(2000000)]],
       searchQuery: [''],
+      page: [1],
     });
 
     this.filterForm.valueChanges.pipe(debounceTime(300)).subscribe(() => {

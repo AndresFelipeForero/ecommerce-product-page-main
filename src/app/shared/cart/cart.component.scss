@@ -28,6 +28,7 @@
         min-height: 60px;
         display: flex;
         padding: 0 24px;
+        align-items: center;
 
         h2 {
             align-self: center;
@@ -36,6 +37,8 @@
             font-size: 18px;
         }
     }
+
+    
 
     .hr {
         height: 1px;
@@ -132,11 +135,26 @@
     .title__empty {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         height: 60px;
         margin: 0 24px;
         font-size: 12px;
     }
 
+    .close-img {
+        width: 14px;
+        min-width: 14px;
+        height: 15px;
+        cursor: pointer;
+        background-image: url('../../../assets/images/icon-close.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: background-image .3s ease;
+
+        &:hover {
+            background-image: url('../../../assets/images/icon-close-hover.svg');
+        }
+    }
     .span__empty {
         display: grid;
         height: 196px;
