@@ -179,6 +179,8 @@ input[type="text"]::placeholder {
   padding: 0 24px;
 }
 
+/*---------------pagination-------------*/
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -253,7 +255,7 @@ input[type="text"]::placeholder {
 @media (min-width: 715px) {
 
   .main-container {
-    padding: 48px 0 50px 0;
+    padding: 48px 0 0 0;
 
     .brands-container {
       picture {
@@ -292,6 +294,10 @@ input[type="text"]::placeholder {
       &.active {
         animation: fadeInBottom715 .4s alternate ease-in;
       }
+    }
+
+    .pagination {
+      padding: 48px 0;
     }
   }
 }

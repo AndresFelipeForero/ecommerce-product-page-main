@@ -1,19 +1,20 @@
 <div class="container">
     @if(productById) {
 
-        <app-carousel class="app-carousel" [images]="productById.image"></app-carousel>
-    
+    <app-carousel class="app-carousel" [images]="productById.image"></app-carousel>
+
     <div class="gallery">
         <div class="big__contain">
             <img (click)="modalActive()" [src]="productById.image[currentImageIndex]" alt="image" class="big__img">
         </div>
         <div class="tiny__contain">
             @for (thumbnail of productById.thumbnail; track $index) {
-                <div class="thumbnails" [ngClass]="{'active': currentImageIndex === $index}" (click)="imgSelected($index)">
-                    <img [src]="thumbnail" alt="thumnail" class="tiny__img" [ngClass]="{'active': currentImageIndex === $index}">
-                </div>
+            <div class="thumbnails" [ngClass]="{'active': currentImageIndex === $index}" (click)="imgSelected($index)">
+                <img [src]="thumbnail" alt="thumnail" class="tiny__img"
+                    [ngClass]="{'active': currentImageIndex === $index}">
+            </div>
             }
-            
+
         </div>
     </div>
 
@@ -26,13 +27,14 @@
 
         <div class="info__price">
             <div class="price">
-                <div class="final__price">${{ (productById.price - productById.price * productById.discount / 100) | number:'1.0-0'}}</div>
+                <div class="final__price">${{ (productById.price - productById.price * productById.discount / 100) |
+                    number:'1.0-0'}}</div>
                 @if (productById.discount !== 0) {
-                    <div class="discount">{{productById.discount}}%</div>
+                <div class="discount">{{productById.discount}}%</div>
                 }
             </div>
             @if (productById.discount !== 0) {
-                <span class="original__price">${{productById.price | number:'1.0-0'}}</span>
+            <span class="original__price">${{productById.price | number:'1.0-0'}}</span>
             }
         </div>
 
@@ -48,29 +50,25 @@
             </button>
         </div>
     </div>
-    <footer class="attribution">
-        Coded by <a href="#">Andrés Forero</a>.
-      </footer>
 
-      <div class="modal" [ngClass]="{'modal__active': isModalActive}">
-          <div class="gallery2">
-              <button (click)="modalActive()" class="btn-close-img"></button>
+    <div class="modal" [ngClass]="{'modal__active': isModalActive}">
+        <div class="gallery2">
+            <button (click)="modalActive()" class="btn-close-img"></button>
             <div class="big__contain">
-                    <img [src]="productById.image[currentImageIndex]" alt="image" class="big__img">
+                <img [src]="productById.image[currentImageIndex]" alt="image" class="big__img">
                 <button class="btn__left" (click)="showPrevImage()"></button>
                 <button class="btn__right" (click)="showNextImage()"></button>
             </div>
             <div class="tiny__contain">
                 @for (thumbnail of productById.thumbnail; track $index) {
-                    <div class="thumbnails" [ngClass]="{'active': currentImageIndex === $index}" (click)="imgSelected($index)">
-                        <img [src]="thumbnail" alt="thumnail" class="tiny__img" [ngClass]="{'active': currentImageIndex === $index}">
-                    </div>
+                <div class="thumbnails" [ngClass]="{'active': currentImageIndex === $index}"
+                    (click)="imgSelected($index)">
+                    <img [src]="thumbnail" alt="thumnail" class="tiny__img"
+                        [ngClass]="{'active': currentImageIndex === $index}">
+                </div>
                 }
-          
             </div>
-              </div>
-      </div>
-
+        </div>
+    </div>
     }
-    
 </div>

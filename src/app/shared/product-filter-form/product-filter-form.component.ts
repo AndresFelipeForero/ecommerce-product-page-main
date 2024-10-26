@@ -29,7 +29,6 @@ export class ProductFilterFormComponent {
   subscribe?: Subscription;
   showCompanys!: any[];
 
-
   ngOnInit() {
     this._iProductService
       .getAll()
@@ -44,23 +43,22 @@ export class ProductFilterFormComponent {
         })
       )
       .subscribe((result) => {
-        this.showCompanys = Array.from(new Set(result.companyArray)).map(company => {
-          return {company, checked: false} 
-        });
+        this.showCompanys = Array.from(new Set(result.companyArray)).map(
+          (company) => {
+            return { company, checked: false };
+          }
+        );
 
         this.activateRout.queryParams.subscribe((params) => {
           if (params) {
-
             let companyArray: string[] = [];
             if (params['company']) {
-
               if (!Array.isArray(params['company'])) {
                 companyArray = [params['company']];
-                } else if (params['company'] === undefined){
-                  params['company'] = []
-                }
-                else {
-                  companyArray = params['company'];
+              } else if (params['company'] === undefined) {
+                params['company'] = [];
+              } else {
+                companyArray = params['company'];
               }
             }
 
@@ -90,7 +88,7 @@ export class ProductFilterFormComponent {
     if (this.filterForm.valid) {
       this._filterStore.addFilters(this.filterForm.value);
     }
-    this.putCheckeds()
+    this.putCheckeds();
   }
 
   companyChecked(company: string) {
@@ -103,19 +101,21 @@ export class ProductFilterFormComponent {
     } else {
       companyArray.splice(index, 1);
     }
-      this.filterForm.patchValue({ company: companyArray });
+    this.filterForm.patchValue({ company: companyArray });
   }
 
   putCheckeds() {
-    let companyArray = this.filterForm.get('company')?.value
-    this.showCompanys?.forEach((compCheck)=> {
-      let index = companyArray.findIndex((el:string) => el === compCheck.company)
+    let companyArray = this.filterForm.get('company')?.value;
+    this.showCompanys?.forEach((compCheck) => {
+      let index = companyArray.findIndex(
+        (el: string) => el === compCheck.company
+      );
       if (index !== -1) {
-        compCheck.checked = true
+        compCheck.checked = true;
       } else {
-        compCheck.checked = false
+        compCheck.checked = false;
       }
-    })
+    });
   }
 
   ngOnDestroy() {

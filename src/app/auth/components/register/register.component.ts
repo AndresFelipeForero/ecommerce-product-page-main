@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { fadeInOut } from '../../../animations/fadeInOut';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,7 @@ export class RegisterComponent {
   form: FormGroup;
 
   _authServices = inject(AuthService)
+  toastr = inject(ToastrService)
 
   isPaswordMatching = true
   isButtonEnable = false
@@ -41,9 +43,15 @@ export class RegisterComponent {
       this.isPaswordMatching = false
       return
     }
-    console.log(userData)
-    const userRegistred = await this._authServices.register(userData).catch(error => console.log(error))
-    console.log( userRegistred)
+
+    try {
+      const userRegistred = await this._authServices.register(userData)
+      this.toastr.success(`El usuario ${userData.username} ha sido registrado`, '¡REGISTRO EXITOSO!');
+      this.isPaswordMatching = true;
+    } catch (error) {
+      let {message} = (error as any).error.error
+      console.log({message})
+      this.toastr.warning(message, '¡AVISO!')
+    }
   }
-  
 }

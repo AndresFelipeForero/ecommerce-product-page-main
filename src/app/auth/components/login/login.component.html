@@ -21,7 +21,7 @@
   <div class="form-field">
     <div class="field">
       <input placeholder="" id="password" type="password" formControlName="password" />
-      <label for="password">Password:</label>
+      <label for="password">Contraseña:</label>
     </div>
     <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="error" @enterAnimation>
       <small *ngIf="form.get('password')?.errors?.['pattern']">El teléfono debe ser un número válido.</small>
@@ -30,4 +30,6 @@
 
   <!-- submit button -->
   <button type="submit" [disabled]="form.invalid">LogIn</button>
+
+  <span routerLink="/auth/forgot-password">Olvidé mi contraseña</span>
 </form>

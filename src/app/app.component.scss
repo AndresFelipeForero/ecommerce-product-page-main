@@ -1,6 +1,7 @@
 .app-container{
     height: 100%;
     max-width: 1112px;
+    min-height: fit-content;
 }
 
 @media (min-width:819px) {

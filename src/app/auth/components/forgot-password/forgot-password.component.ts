@@ -7,14 +7,13 @@ import { fadeInOut } from '../../../animations/fadeInOut';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-forgot-password',
   standalone: true,
   imports: [ReactiveFormsModule, NgIf, RouterLink],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
-  animations: [fadeInOut]
+  templateUrl: './forgot-password.component.html',
+  styleUrl: './forgot-password.component.scss'
 })
-export class LoginComponent {
+export class ForgotPasswordComponent {
 
   form: FormGroup;
   _authService = inject(AuthService)
@@ -24,7 +23,6 @@ export class LoginComponent {
   constructor(private fb: FormBuilder){
     this.form = this.fb.group({
       identifier: ['', [Validators.required, Validators.minLength(3)]],
-      password: ['', [Validators.required]]
     })
   }
 

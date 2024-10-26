@@ -93,7 +93,7 @@
 @media (min-width: 600px) {
 
     .inicio-container {
-        height: calc(100vh - 172px);
+        height: calc(100vh - 64px);
 
         display: grid;
         grid-template:
@@ -219,5 +219,11 @@
                 opacity: .9;
             }
         }
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .inicio-container {
+        height: calc(100vh - 116px);
     }
 }

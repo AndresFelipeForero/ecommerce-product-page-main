@@ -1,0 +1,146 @@
+.variables {
+    --Orange: hsl(26, 100%, 55%);
+    --Paleorange: hsl(25, 100%, 94%);
+
+    // ### Neutral
+
+    --Verydarkblue: hsl(220, 13%, 13%);
+    --Darkgrayishblue: hsl(219, 9%, 45%);
+    --Grayishblue: hsl(220, 14%, 75%);
+    --Lightgrayishblue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    // (with 75% opacity for lightbox background)
+    --Black: hsla(0, 0%, 0%);
+}
+
+.footer-container {
+    background-color: var(--Verydarkblue);
+    color: var(--Grayishblue);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    h3 {
+        color: var(--Paleorange);
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 18px;
+        color: var(--Lightgrayishblue);
+    }
+
+    span {
+        font-size: 14px;
+    }
+
+    .logo-container {
+        width: 100px;
+        color: var(--White);
+        font-family: cursive;
+        text-align: center;
+        position: relative;
+
+
+            img {
+                max-width: 150px;
+            }
+
+        span {
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+        }
+    }
+
+    .customers-attention {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-left: 12px;
+
+            a:hover {
+                color: var(--Paleorange);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .pqrs {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .pqrs__options {
+            padding-left: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+
+            span:hover {
+              text-decoration: underline;   
+              color: var(--Paleorange);
+            }
+        }
+    }
+}
+
+.copyright {
+    display: block;
+    font-size: 8px;
+    text-align: center;
+    color: var(--Paleorange);
+    background-color: var(--Verydarkblue);
+    padding: 4px;
+}
+
+@media (min-width: 800px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+
+        .logo-container {
+            span {
+                top: 50px;
+            }
+        }
+
+        .customers-attention {
+           align-items: end;
+           div {
+            align-items: end;
+            span {
+                text-align: end;
+            }
+           }
+        }
+        
+        .pqrs {
+           align-items: end;
+           
+           .pqrs__options {
+               align-items: end;
+               gap: 20px;
+            span {
+                text-align: end;
+            }
+           }
+        }
+
+
+    }
+}
+
+@media (min-width: 1112px) {
+    .footer-container {
+        padding: 24px calc((100vw - 1112px)/ 2);
+    }
+}

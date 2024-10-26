@@ -129,6 +129,11 @@
         cursor: pointer;
         color: var(--White);
         margin: 12px 24px 24px 24px;
+        transition: opacity .3s ease;
+
+        &:hover {
+            opacity: .6;
+        }
     }
 
     // Cart Empt

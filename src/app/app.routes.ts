@@ -46,6 +46,29 @@ export const routes: Routes = [
       )
   },
   {
+    path: 'terms',
+    loadComponent: () =>
+      import('./components/terms-page/terms-page.component').then(
+        (c) => c.TermsPageComponent,
+      )
+  },
+  {
+    path: 'warranty',
+    loadComponent: () =>
+      import('./components/warranty-page/warranty-page.component'
+      ).then(
+        (c) => c.WarrantyPageComponent
+      )
+  },
+  {
+    path: 'refund',
+    loadComponent: () =>
+      import('./components/refund-page/refund-page.component'
+      ).then(
+        (c) => c.RefundPageComponent
+      )
+  },
+  {
     path: 'check-out',
     canActivate: [authGuard],
     loadComponent: () =>

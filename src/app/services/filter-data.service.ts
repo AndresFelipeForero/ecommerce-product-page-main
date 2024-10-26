@@ -10,7 +10,7 @@ export class FilterDataService {
 
   private filteredData$ = new BehaviorSubject<any>({
     page: 1,
-    pageSize: 3,
+    pageSize: 6,
     minPrice: 1,
     maxPrice: 2000000,
     searchQuery: '',
