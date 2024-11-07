@@ -30,7 +30,7 @@
         flex-direction: column;
         justify-content: space-between;
         gap: 28px;
-        padding: 0 24px 48px 24px;
+        padding: 24px 24px 48px 24px;
 
         .info {
             display: flex;
@@ -179,8 +179,8 @@
         grid-template:
             'images info' 1fr /
             1fr 1fr;
-
-        padding: 92px 50px 0 50px;
+        place-items: center;
+        min-height: calc(100vh - 112px); 
 
         .gallery {
             grid-area: images;
