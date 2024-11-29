@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { CartStoreService } from '../../services/cart-store.service';
 import { ToastrService } from 'ngx-toastr';
+import { fadeInOut } from '../../animations/fadeInOut';
 
 @Component({
   selector: 'app-product-card',
@@ -11,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   imports: [RouterLink, DecimalPipe],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
+  animations: [fadeInOut]
 })
 export class ProductCardComponent {
   _storeService = inject(CartStoreService);

@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { FilterDataService } from './filter-data.service';
-import { Observable, switchMap } from 'rxjs';
+import { firstValueFrom, Observable, switchMap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -9,11 +9,9 @@ import { environment } from '../../environments/environment';
 })
 export class IproductService {
   httpClient = inject(HttpClient);
-  // baseURL: string = 'https://generous-vibrancy-production.up.railway.app/api/i-products';
   _filterStore = inject(FilterDataService);
   baseURL: string = environment.baseUrl;
   table: string = 'i-products'
-
   populate: string = '?populate=*';
 
   getAll() {

@@ -13,6 +13,7 @@ export class AuthService {
   baseURL: string = environment.baseUrl;
   loginRoad:string = 'auth/local';
   registerRoad:string = 'auth/local/register';
+  forgotRoad: string = 'auth/forgot-password'
 
   register(data: Register){
     return firstValueFrom(
@@ -28,5 +29,11 @@ export class AuthService {
 
   isLogged() {
     return !!localStorage.getItem('token-auth')
+  }
+
+  forgotPassword(email: Login){
+    return firstValueFrom(
+      this.http.post(`${this.baseURL}/${this.forgotRoad}`, email)
+    )
   }
 }

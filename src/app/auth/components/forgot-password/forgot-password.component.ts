@@ -11,7 +11,8 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [ReactiveFormsModule, NgIf, RouterLink],
   templateUrl: './forgot-password.component.html',
-  styleUrl: './forgot-password.component.scss'
+  styleUrl: './forgot-password.component.scss',
+  animations: [fadeInOut]
 })
 export class ForgotPasswordComponent {
 
@@ -22,18 +23,15 @@ export class ForgotPasswordComponent {
 
   constructor(private fb: FormBuilder){
     this.form = this.fb.group({
-      identifier: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]],
     })
   }
 
 
   async onSubmit(){
     try {
-      const response = await this._authService.logIn(this.form.value)
-      let {jwt, user} = response as any
-      localStorage.setItem('token-auth', jwt)
-      this.router.navigate(['/init'])
-      this.toastr.success( 'Logueado con exito!', `${user.username}`, {
+      const response = await this._authService.forgotPassword(this.form.value)
+      this.toastr.success( `Hemos enviado un correo a ${this.form.value.email}!`, `¡Enviado!`, {
         positionClass: 'toast-top-center',
         progressBar: true,
         timeOut: 2000,

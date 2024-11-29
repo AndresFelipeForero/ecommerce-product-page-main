@@ -44,9 +44,8 @@
         @for(productFather of showProducts; track productFather.id){
             @defer (on viewport) {
                 <app-product-card class="card" [product]='productFather'></app-product-card>
-            }
-            @placeholder {
-                <span>cargando...</span>
+            } @placeholder (minimum 500ms) {
+                <div class="phdefer"><p>Cargando...</p></div>
             }
         }
     </div>

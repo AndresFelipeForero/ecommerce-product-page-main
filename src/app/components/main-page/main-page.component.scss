@@ -177,6 +177,16 @@ input[type="text"]::placeholder {
   gap: 32px;
   justify-items: center;
   padding: 0 24px;
+
+  .phdefer{
+    width: 100%;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 2px;
+    border-radius: 6px;
+  }
 }
 
 /*---------------pagination-------------*/

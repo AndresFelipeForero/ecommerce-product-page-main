@@ -1,57 +1,59 @@
-<!-- tilte -->
-<h2>REGISTRAR</h2>
-
-<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-
-    <!-- userName -->
+<div class="container">
+  <!-- tilte -->
+  <h2>REGISTRAR</h2>
+  
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+      <!-- userName -->
+      <div class="form-field">
+        <div class="field">
+          <input placeholder="" id="identifier" type="text" formControlName="username" />
+          <label for="identifier">Usuario:</label>
+        </div>
+        <div *ngIf="form.get('identifier')?.touched && form.get('identifier')?.invalid" class="error" @enterAnimation>
+          <small *ngIf="form.get('identifier')?.errors?.['required']" >El usuario es requerido.</small>
+          <small *ngIf="form.get('identifier')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</small>
+        </div>
+      </div>
+  
+      <!-- Email -->
     <div class="form-field">
       <div class="field">
-        <input placeholder="" id="identifier" type="text" formControlName="username" />
-        <label for="identifier">Usuario:</label>
+        <input placeholder="" id="email" formControlName="email" />
+        <label for="email">Email:</label>
       </div>
-      <div *ngIf="form.get('identifier')?.touched && form.get('identifier')?.invalid" class="error" @enterAnimation>
-        <small *ngIf="form.get('identifier')?.errors?.['required']" >El usuario es requerido.</small>
-        <small *ngIf="form.get('identifier')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</small>
-      </div>
-    </div>
-
-    <!-- Email -->
-  <div class="form-field">
-    <div class="field">
-      <input placeholder="" id="email" formControlName="email" />
-      <label for="email">Email:</label>
-    </div>
-    <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="error" @enterAnimation>
-      <small *ngIf="form.get('email')?.errors?.['required']">El email es requerido.</small>
-      <small *ngIf="form.get('email')?.errors?.['email']">El email no es válido.</small>
-      <small *ngIf="form.get('email')?.errors?.['pattern']">El email no es válido.</small>
-    </div>
-  </div>
-  
-  
-  
-    <!-- Password -->
-    <div class="form-field">
-      <div class="field">
-        <input placeholder="" id="password" type="password" formControlName="password" />
-        <label for="password">Password:</label>
-      </div>
-      <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="error" @enterAnimation>
-        <small *ngIf="form.get('password')?.errors?.['pattern']">La contraseña debe bla bla bla</small>
-      </div>
-    </div>
-
-    <div class="form-field">
-      <div class="field">
-        <input placeholder="" id="passwordConfirm" type="password" formControlName="passwordConfirm"/>
-        <label for="passwordConfirm">Confirmar Password:</label>
-      </div>
-      <small *ngIf="!isPaswordMatching">Las contraseñas no coinciden.</small>
-      <div *ngIf="form.get('passwordConfirm')?.touched && form.get('passwordConfirm')?.invalid" class="error" @enterAnimation>
-        <small *ngIf="form.get('passwordConfirm')?.errors?.['pattern']">La contraseña debe bla bla bla</small>
+      <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="error" @enterAnimation>
+        <small *ngIf="form.get('email')?.errors?.['required']">El email es requerido.</small>
+        <small *ngIf="form.get('email')?.errors?.['email']">El email no es válido.</small>
+        <small *ngIf="form.get('email')?.errors?.['pattern']">El email no es válido.</small>
       </div>
     </div>
   
-    <!-- submit button -->
-    <button type="submit" [disabled]="form.invalid">Enviar</button>
-  </form>
+  
+  
+      <!-- Password -->
+      <div class="form-field">
+        <div class="field">
+          <input placeholder="" id="password" type="password" formControlName="password" />
+          <label for="password">Password:</label>
+        </div>
+        <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="error" @enterAnimation>
+          <small *ngIf="form.get('password')?.errors?.['pattern']">La contraseña debe bla bla bla</small>
+        </div>
+      </div>
+  
+      <div class="form-field">
+        <div class="field">
+          <input placeholder="" id="passwordConfirm" type="password" formControlName="passwordConfirm"/>
+          <label for="passwordConfirm">Confirmar Password:</label>
+        </div>
+        <small *ngIf="!isPaswordMatching">Las contraseñas no coinciden.</small>
+        <div *ngIf="form.get('passwordConfirm')?.touched && form.get('passwordConfirm')?.invalid" class="error" @enterAnimation>
+          <small *ngIf="form.get('passwordConfirm')?.errors?.['pattern']">La contraseña debe bla bla bla</small>
+        </div>
+      </div>
+  
+      <!-- submit button -->
+      <button type="submit" [disabled]="form.invalid">Enviar</button>
+    </form>
+</div>

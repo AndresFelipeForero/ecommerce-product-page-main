@@ -2,15 +2,15 @@
     <div class="price-info">
         <div class="card__price">${{product.finalPrice | number:'1.0-0'}}</div>
         @if (product.discount !== 0) {
-            <div class="discount">{{product.discount}}%</div>
+        <div class="discount">{{product.discount}}%</div>
 
-            <span class="original__price">${{product.price | number:'1.0-0'}}</span>
+        <span class="original__price">${{product.price | number:'1.0-0'}}</span>
         }
     </div>
-        <div [routerLink]="['/main/', product.id]" (mouseenter)="changeImage(1)"
+    <div @enterAnimation [routerLink]="['/main/', product.id]" (mouseenter)="changeImage(1)"
         (mouseleave)="changeImage(0)" class="card__img--container">
-            <img  src="{{product.image[imageSelected]}}" alt="gas">
-        </div>
+        <img src="{{product.image[imageSelected]}}" alt="image">
+    </div>
     <div class="card__botton-info">
         <h3 class="name">{{product.name}}</h3>
         <div class="card__icon--cart" (click)="addOneToCart(product)">

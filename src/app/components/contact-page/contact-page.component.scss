@@ -9,8 +9,17 @@
     --Grayishblue: hsl(220, 14%, 75%);
     --Lightgrayishblue: hsl(223, 64%, 98%);
     --White: hsl(0, 0%, 100%);
-    // (with 75% opacity for lightbox background)
     --Black: hsla(0, 0%, 0%);
+}
+
+    
+.container {
+    height: calc(100svh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 60px;
 }
 
 .desk-title {
@@ -26,7 +35,7 @@
     gap: 32px;
 
     h2 {
-        // font-family: cursive;
+        padding-top: 60px;
         font-size: 20px;
         color: var(--Verydarkblue);
         filter: drop-shadow(-2px 1px 3px  var(--Grayishblue));
@@ -79,11 +88,6 @@
                 }
             }
         }
-
-        // .textarea-label{
-        //     color: var(--Darkgrayishblue);
-        //     padding: 0 15px;
-        // }
 
         textarea {
             height: 60px;
@@ -163,5 +167,14 @@
                 box-shadow: 0px 5px 48px -16px hsl(25, 100%, 70%), 0px 3px 24px -8px hsl(25, 100%, 70%);
             }
         }
+    }
+}
+
+    
+@media (min-width: 800px) {
+    .container {
+        height: calc(100vh - 112px);
+        padding-bottom: 112px;
+        gap: 60px;
     }
 }
