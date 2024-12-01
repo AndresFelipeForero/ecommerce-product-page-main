@@ -6,14 +6,14 @@
 
   <ul class="nav__ul" [ngClass]="{'nav__ul--active': isNavActive}">
 
-    <li routerLinkActive="active" [routerLink]="'/init'" [routerLinkActiveOptions]="{ exact: true }" class="nav__li" (click)="closeNav()"><a class="nav__a">Inicio</a>
+    <li routerLinkActive="active" [routerLink]="'/init'" [routerLinkActiveOptions]="{ exact: true }" class="nav__li" (click)="closeNav()"><div class="nav__a">Inicio</div>
     </li>
-    <li routerLinkActive="active" [routerLink]="'/main'" class="nav__li" (click)="closeNav()"><a class="nav__a">Colección</a>
+    <li routerLinkActive="active" [routerLink]="'/main'" class="nav__li" (click)="closeNav()"><div class="nav__a">Colección</div>
     </li>
    
-    <li routerLinkActive="active" [routerLink]="'/about-us'" class="nav__li" (click)="closeNav()"><a class="nav__a">Quiénes somos</a>
+    <li routerLinkActive="active" [routerLink]="'/about-us'" class="nav__li" (click)="closeNav()"><div class="nav__a">Quiénes somos</div>
     </li>
-    <li routerLinkActive="active" [routerLink]="'/contact'" class="nav__li" (click)="closeNav()"><a class="nav__a">Contacto</a>
+    <li routerLinkActive="active" [routerLink]="'/contact'" class="nav__li" (click)="closeNav()"><div class="nav__a">Contacto</div>
     </li>
   </ul>
 

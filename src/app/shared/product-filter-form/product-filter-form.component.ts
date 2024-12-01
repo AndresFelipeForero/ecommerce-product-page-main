@@ -74,7 +74,7 @@ export class ProductFilterFormComponent {
     this.filterForm = this.fb.group({
       company: [[]],
       minPrice: [0, [Validators.required, Validators.min(0)]],
-      maxPrice: [2000000, [Validators.required, Validators.max(2000000)]],
+      maxPrice: [2000000, [Validators.required]],
       searchQuery: [''],
       page: [1],
     });

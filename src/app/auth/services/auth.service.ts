@@ -11,19 +11,21 @@ import { environment } from '../../../environments/environment';
 export class AuthService {
   http = inject(HttpClient)
   baseURL: string = environment.baseUrl;
-  loginRoad:string = 'auth/local';
-  registerRoad:string = 'auth/local/register';
-  forgotRoad: string = 'auth/forgot-password'
+  loginPath:string = 'auth/local';
+  registerPath:string = 'auth/local/register';
+  forgotPath: string = 'auth/forgot-password';
+  resetPath: string = 'auth/reset-password';
+
 
   register(data: Register){
     return firstValueFrom(
-      this.http.post(`${this.baseURL}/${this.registerRoad}`, data)
+      this.http.post(`${this.baseURL}/${this.registerPath}`, data)
     )
   }
   
   logIn(data: Login){
     return firstValueFrom(
-      this.http.post(`${this.baseURL}/${this.loginRoad}`, data)
+      this.http.post(`${this.baseURL}/${this.loginPath}`, data)
     )
   }
 
@@ -33,7 +35,13 @@ export class AuthService {
 
   forgotPassword(email: Login){
     return firstValueFrom(
-      this.http.post(`${this.baseURL}/${this.forgotRoad}`, email)
+      this.http.post(`${this.baseURL}/${this.forgotPath}`, email)
+    )
+  }
+
+  resetPassword(data: Login){
+    return firstValueFrom(
+      this.http.post(`${this.baseURL}/${this.resetPath}`, data)
     )
   }
 }
