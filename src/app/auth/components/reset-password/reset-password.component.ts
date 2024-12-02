@@ -49,7 +49,6 @@ export class ResetPasswordComponent {
 
   async onSubmit() {
     const data = { ...this.form.value, ...this.resetToken };
-    console.log(data);
 
     if (data.password !== data.passwordConfirmation) {
       this.isPasswordMatching = false;
